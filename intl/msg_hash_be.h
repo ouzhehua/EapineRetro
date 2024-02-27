@@ -1433,10 +1433,6 @@ MSG_HASH(
    "Кантролер"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
-   "Ужыты драйвер кантролера."
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_DINPUT,
    "Драйвер кантролера DirectInput."
    )
@@ -1673,7 +1669,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_DRIVER,
-   "Ужыты драйвер меню. Патрабуе перазапуску."
+   "Ужыты драйвер меню (патрабуецца перазапуск)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_MENU_DRIVER_XMB,
@@ -1945,10 +1941,6 @@ MSG_HASH(
    "Выбраць, які экран дысплэя будзе выкарыстоўвацца."
    )
 #if defined (WIIU)
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_WIIU_PREFER_DRC,
-   "Аптымізаваць для Wii U GamePad (патрабуецца перазапуск)"
-   )
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_ROTATION,
@@ -3567,7 +3559,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_SETTINGS,
-   "Паказваць меню 'Налады' (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць меню 'Налады' (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_FAVORITES,
@@ -3575,7 +3567,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_FAVORITES,
-   "Паказваць меню 'Упадабанае' (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць меню 'Упадабанае' (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_IMAGES,
@@ -3583,7 +3575,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_IMAGES,
-   "Паказваць меню 'Відарысы' (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць меню 'Відарысы' (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_MUSIC,
@@ -3591,7 +3583,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_MUSIC,
-   "Паказваць меню 'Музыка' (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць меню 'Музыка' (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_VIDEO,
@@ -3599,7 +3591,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_VIDEO,
-   "Паказваць меню 'Відэа' (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць меню 'Відэа' (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_NETPLAY,
@@ -3607,7 +3599,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_NETPLAY,
-   "Паказваць меню 'Сеткавая гульня' (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць меню 'Сеткавая гульня' (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_HISTORY,
@@ -3615,7 +3607,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_HISTORY,
-   "Паказваць меню нядаўняй гісторыі (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць меню нядаўняй гісторыі (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_ADD,
@@ -3643,7 +3635,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_PLAYLISTS,
-   "Паказваць плэй-лісты (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць плэй-лісты (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_EXPLORE,
@@ -3651,7 +3643,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_EXPLORE,
-   "Паказваць опцыю даследчыка змесціва (патрабуецца перазапуск на Ozone/XMB)."
+   "Паказваць опцыю даследчыка змесціва (патрабуецца перазапуск на Ozone/XMB)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_CONTENTLESS_CORES,
@@ -3910,6 +3902,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SETTINGS_SHOW_USER_INTERFACE,
    "Паказваць налады 'Карыстальніцкі інтэрфейс'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_ACCESSIBILITY,
+   "Паказ 'Спецыяльныя магчымасці'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SETTINGS_SHOW_ACCESSIBILITY,
+   "Паказваць налады 'Спецыяльныя магчымасці'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_POWER_MANAGEMENT,

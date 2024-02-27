@@ -1071,6 +1071,9 @@
  * at launch the last used disk of multi-disk content */
 #define DEFAULT_NOTIFICATION_SHOW_SET_INITIAL_DISK true
 
+/* Display disc control notifications */
+#define DEFAULT_NOTIFICATION_SHOW_DISK_CONTROL true
+
 /* Display save state notifications */
 #define DEFAULT_NOTIFICATION_SHOW_SAVE_STATE true
 
@@ -1684,6 +1687,8 @@
 
 #if defined(HAKCHI)
 #define DEFAULT_BUILDBOT_SERVER_URL "http://hakchicloud.com/Libretro_Cores/"
+#elif defined(WEBOS)
+#define DEFAULT_BUILDBOT_SERVER_URL "https://www.webosbrew.org/retroarch-cores/armv7a/"
 #elif defined(ANDROID)
 #if defined(ANDROID_ARM_V7)
 #define DEFAULT_BUILDBOT_SERVER_URL "http://buildbot.libretro.com/nightly/android/latest/armeabi-v7a/"

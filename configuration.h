@@ -703,6 +703,7 @@ typedef struct settings
       bool notification_show_remap_load;
       bool notification_show_config_override_load;
       bool notification_show_set_initial_disk;
+      bool notification_show_disk_control;
       bool notification_show_save_state;
       bool notification_show_fast_forward;
 #ifdef HAVE_SCREENSHOTS
@@ -1209,6 +1210,16 @@ bool config_unload_override(void);
 bool config_load_remap(const char *directory_input_remapping,
       void *data);
 
+/**
+ * config_get_autoconf_profile_filename:
+ * @device_name       : Input device name
+ * @user              : Controller number to save
+ * Fills buf with the autoconf profile file name (including driver dir if needed).
+ **/
+
+void config_get_autoconf_profile_filename(
+      const char *device_name, unsigned user, 
+      char *buf, size_t len_buf);
 /**
  * config_save_autoconf_profile:
  * @device_name       : Input device name

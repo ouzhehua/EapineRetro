@@ -4086,7 +4086,7 @@ bool command_event(enum event_command cmd, void *data)
 
             command_event(CMD_EVENT_HISTORY_DEINIT, NULL);
 
-            if (!history_list_enable)
+            if (!history_list_enable || !playlist_config.capacity)
                return false;
 
             _msg = msg_hash_to_str(MSG_LOADING_HISTORY_FILE);
@@ -4981,6 +4981,9 @@ bool command_event(enum event_command cmd, void *data)
                if (show_msg)
                   verbose                      = *show_msg;
 
+               if (!settings->bools.notification_show_disk_control)
+                  verbose                      = false;
+
                disk_control_set_eject_state(
                      &sys_info->disk_control, eject, verbose);
 
@@ -5013,6 +5016,9 @@ bool command_event(enum event_command cmd, void *data)
                if (show_msg)
                   verbose     = *show_msg;
 
+               if (!settings->bools.notification_show_disk_control)
+                  verbose     = false;
+
                disk_control_set_index_next(&sys_info->disk_control, verbose);
             }
             else
@@ -5036,6 +5042,9 @@ bool command_event(enum event_command cmd, void *data)
 
                if (show_msg)
                   verbose     = *show_msg;
+
+               if (!settings->bools.notification_show_disk_control)
+                  verbose     = false;
 
                disk_control_set_index_prev(&sys_info->disk_control, verbose);
             }
@@ -8156,14 +8165,8 @@ bool retroarch_main_quit(void)
    /* Restore original refresh rate, if it has been changed
     * automatically in SET_SYSTEM_AV_INFO */
    if (video_st->video_refresh_rate_original)
-   {
-      RARCH_DBG("[Video]: Restoring original refresh rate: %f Hz\n", video_st->video_refresh_rate_original);
-      /* Set the av_info fps also to the original refresh rate */
-      /* to avoid re-initialization problems */
-      av_info->timing.fps = video_st->video_refresh_rate_original;
-
       video_display_server_restore_refresh_rate();
-   }
+
    if (!(runloop_st->flags & RUNLOOP_FLAG_SHUTDOWN_INITIATED))
    {
       if (settings->bools.savestate_auto_save &&
@@ -8214,8 +8217,11 @@ bool retroarch_main_quit(void)
    retroarch_menu_running_finished(true);
 #endif
 
-#ifdef HAVE_ACCESSIBILITY
+#ifdef HAVE_TRANSLATE
    translation_release(false);
+#endif
+
+#ifdef HAVE_ACCESSIBILITY
 #ifdef HAVE_THREADS
    if (access_st->image_lock)
    {
@@ -8318,6 +8324,9 @@ void retroarch_favorites_init(void)
       playlist_config.capacity = (size_t)content_favorites_size;
 
    retroarch_favorites_deinit();
+
+   if (!playlist_config.capacity)
+      return;
 
    RARCH_LOG("[Playlist]: %s: \"%s\".\n",
          msg_hash_to_str(MSG_LOADING_FAVORITES_FILE),

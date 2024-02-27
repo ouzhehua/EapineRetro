@@ -2528,9 +2528,15 @@ static int setting_action_ok_bind_all_save_autoconfig(
 
    if (!string_is_empty(name) &&
          config_save_autoconf_profile(name, index_offset))
+   {
+      char buf[PATH_MAX_LENGTH];
+      char msg[PATH_MAX_LENGTH];
+      config_get_autoconf_profile_filename(name, index_offset, buf, sizeof(buf));
+      snprintf(msg, sizeof(msg),msg_hash_to_str(MSG_AUTOCONFIG_FILE_SAVED_SUCCESSFULLY_NAMED),buf);
       runloop_msg_queue_push(
-            msg_hash_to_str(MSG_AUTOCONFIG_FILE_SAVED_SUCCESSFULLY), 1, 100, true,
+            msg, 1, 180, true,
             NULL, MESSAGE_QUEUE_ICON_DEFAULT, MESSAGE_QUEUE_CATEGORY_INFO);
+   }
    else
       runloop_msg_queue_push(
             msg_hash_to_str(MSG_AUTOCONFIG_FILE_ERROR_SAVING), 1, 100, true,
@@ -15306,7 +15312,7 @@ static bool setting_append_list(
                   general_write_handler,
                   general_read_handler);
             (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint;
-            menu_settings_list_current_add_range(list, list_info, 0, 1.0, 0.01, true, true);
+            menu_settings_list_current_add_range(list, list_info, 0.05, 0.99, 0.01, true, true);
             SETTINGS_DATA_LIST_CURRENT_ADD_FLAGS(list, list_info, SD_FLAG_LAKKA_ADVANCED);
 
             CONFIG_FLOAT(
@@ -16540,6 +16546,21 @@ static bool setting_append_list(
                MENU_ENUM_LABEL_NOTIFICATION_SHOW_SET_INITIAL_DISK,
                MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_SET_INITIAL_DISK,
                DEFAULT_NOTIFICATION_SHOW_SET_INITIAL_DISK,
+               MENU_ENUM_LABEL_VALUE_OFF,
+               MENU_ENUM_LABEL_VALUE_ON,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler,
+               SD_FLAG_NONE);
+
+         CONFIG_BOOL(
+               list, list_info,
+               &settings->bools.notification_show_disk_control,
+               MENU_ENUM_LABEL_NOTIFICATION_SHOW_DISK_CONTROL,
+               MENU_ENUM_LABEL_VALUE_NOTIFICATION_SHOW_DISK_CONTROL,
+               DEFAULT_NOTIFICATION_SHOW_DISK_CONTROL,
                MENU_ENUM_LABEL_VALUE_OFF,
                MENU_ENUM_LABEL_VALUE_ON,
                &group_info,
