@@ -2219,7 +2219,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WIIU_PREFER_DRC,
-   "ビューポートとしてGamePadの正確な2倍のスケールを使用します。無効にするとテレビのネイティブ解像度で表示されます。"
+   "表示領域としてゲームパッドの 2x 表示倍率を使用します。テレビのネイティブ解像度で表示する場合は無効にしてください。"
    )
 #endif
 MSG_HASH(
@@ -3013,7 +3013,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_MAX_TIMING_SKEW,
-   "音声入力レートの最大変化量です. オーディオピッチの正確さを犠牲にしてタイミングを非常に大きく変更できるようにするには, これを増やすことをお勧めします. (例: NTSCディスプレイでPALコアを実行する場合)"
+   "オーディオ入力レートの最大変化量です。値を大きくするほど、タイミングを大きく変更できるようになりますが、代償としてオーディオピッチの精度が低下します (例: NTSC ディスプレイで PAL コアを実行する場合など)。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_MAX_TIMING_SKEW,
@@ -4262,7 +4262,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RUN_AHEAD_ENABLED,
-   "入力遅延を減らすため, コアロジックを1フレーム以上先に実行してからステートをロードします."
+   "コアロジックを 1 フレーム以上先に実行し、ステートをロードし直すことで認識された入力遅延を軽減します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RUN_AHEAD_FRAMES,
@@ -4278,7 +4278,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RUN_AHEAD_SECONDARY_INSTANCE,
-   "RetroArchコアの2番目のインスタンスを使用して先行実行します. ステートロードによるオーディオの問題を防止します."
+   "RetroArch コアのセカンダリインスタンスを使用して先行実行します。ステートロードによるオーディオの問題を防止します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RUN_AHEAD_HIDE_WARNINGS,
@@ -4286,7 +4286,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RUN_AHEAD_HIDE_WARNINGS,
-   "先行実行を使用していてコアがステートセーブに対応していない場合に表示される警告メッセージを非表示にします."
+   "先行実行を使用する際、コアがステートセーブに対応していない場合に表示される警告メッセージを非表示にします。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PREEMPT_UNSUPPORTED,
@@ -4329,7 +4329,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHARED_CONTEXT,
-   "ハードウェアレンダリングコアに独自のプライベートコンテキストを与えます. フレーム間でハードウェアの状態が変化することを想定しなくて済みます."
+   "ハードウェアレンダリングされたコアに独自のプライベートコンテキストを与えます。フレーム間でハードウェアの状態が変化することを想定しなくて済むようになります。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DRIVER_SWITCH_ENABLE,
@@ -4398,7 +4398,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ALWAYS_RELOAD_CORE_ON_RUN_CONTENT,
-   "要求されたコアがすでに読み込まれている場合でも, コンテンツを起動するときにRetroArchを再起動します. これはロード時間の増加を犠牲にしてシステムの安定性を向上させる可能性があります."
+   "要求されたコアがすでにロードされている場合でも、コンテンツを起動するときに RetroArch を再起動します。ロード時間が増加する代わりに、システムの安定性が向上する可能性があります。"
    )
 #endif
 MSG_HASH(
@@ -4697,7 +4697,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SYSTEMFILES_IN_CONTENT_DIR_ENABLE,
-   "コンテンツディレクトリをシステムのディレクトリとして使用します。"
+   "コンテンツディレクトリを システム/BIOS ディレクトリとして使用します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCREENSHOTS_IN_CONTENT_DIR_ENABLE,
@@ -4784,7 +4784,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LOG_TO_FILE_TIMESTAMP,
-   "ファイルへのログ出力時, RetroArchの各セッション毎に新たなタイムスタンプ付きのファイルにリダイレクトします. 無効の場合, ログはRetroArchを再起動するたびに上書きされます."
+   "ファイルにロギングする際、RetroArch の各セッションごとに新たなタイムスタンプ付きのファイルに出力します。無効にすると、ログは RetroArch を再起動するたび上書きされます。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PERFCNT_ENABLE,
@@ -4995,7 +4995,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_POST_FILTER_RECORD,
-   "(シェーダを除く) フィルタ適用後の出力を録画します. 画面上で見ているるものと同じくらい見栄えがよくなります."
+   "フィルター (シェーダーは除く) を適用した後の画像をキャプチャします。ビデオは画面上で見るものと同じように派手なものになります。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_GPU_RECORD,
@@ -5374,7 +5374,7 @@ MSG_HASH(
    )
 MSG_HASH( /* FIXME Unused */
    MENU_ENUM_SUBLABEL_VIDEO_LAYOUT_SELECTED_VIEW,
-   "ロードされたレイアウト内のビューを選択します. "
+   "ロードされたレイアウト内のビューを選択します。"
    )
 
 /* Settings > On-Screen Display > On-Screen Notifications */
@@ -5461,7 +5461,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MEMORY_UPDATE_INTERVAL,
-   "メモリ使用量の更新間隔 (フレーム)"
+   "メモリ使用量の更新間隔 (フレーム単位)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MEMORY_UPDATE_INTERVAL,
@@ -7241,7 +7241,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_REQUIRE_SLAVES,
-   "スレーブモードでの接続を禁止します. 非常に弱いマシンがある非常に高速なネットワーク以外では推奨されません."
+   "スレーブモードでの接続を禁止します。非常に弱いマシンがある非常に高速なネットワーク以外では推奨されません。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_CHECK_FRAMES,
@@ -7249,7 +7249,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_CHECK_FRAMES,
-   "ネットプレイ時にホストとクライアントが同期しているかどうかを確認する頻度(フレーム数)です."
+   "ネットプレイ時にホストとクライアントが同期しているがどうかを確認する頻度 (フレーム数) です。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_NETPLAY_CHECK_FRAMES,
@@ -7261,7 +7261,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_INPUT_LATENCY_FRAMES_MIN,
-   "ネットワーク遅延を隠すために使用する, ネットプレイ中の入力遅延のフレーム数です. 顕著な入力の遅れを犠牲にして, ジッタを減らし, CPUの負担を軽減します. "
+   "ネットワーク遅延を隠すために使用する、入力遅延のフレーム数です。顕著な入力遅延を犠牲にして、ジッターとネットプレイ中の CPU 使用率を軽減します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_NETPLAY_INPUT_LATENCY_FRAMES_MIN,
@@ -7273,7 +7273,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_INPUT_LATENCY_FRAMES_RANGE,
-   "ネットワーク遅延を隠すために使用される可能性がある入力遅延フレームの範囲です. 予期しない入力遅延を犠牲にして, ジッタを減らし, ネットプレイのCPU使用率を減らします. "
+   "ネットワーク遅延を隠すために使用できる入力遅延のフレームの範囲です。予測不可能な入力遅延を犠牲にして、ジッターとネットプレイ中の CPU 使用率を軽減します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_NETPLAY_INPUT_LATENCY_FRAMES_RANGE,
@@ -7774,7 +7774,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEEVOS_USERNAME,
-   "RetroAchievements のアカウントユーザー名を入力してください."
+   "RetroAchievements のアカウントユーザー名を入力してください。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ACCOUNTS_CHEEVOS_PASSWORD,
@@ -8345,7 +8345,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MANUAL_CONTENT_SCAN_DAT_FILE,
-   "Logiqx または MAME の リスト XML DATファイルを選択して, スキャンされたアーケードコンテンツ(MAME, FinalBurn Neoなど)の自動命名を有効にします."
+   "スキャンされたアーケードコンテンツ (MAME、FinalBurn Neo など) の自動命名を有効にするために、Logiqx または MAME リスト XML DAT ファイルを選択します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MANUAL_CONTENT_SCAN_DAT_FILE_FILTER,
@@ -9343,7 +9343,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEAT_REPEAT_COUNT,
-   "チートが適用される回数です. 他の2つの'繰り返し'オプションと併用することで, メモリの大規模な領域に影響を与えることができます."
+   "チートを適用する回数です。他の 2 つの [繰り返し] オプションと併用することで、メモリの広い範囲に影響を与えることができます。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_REPEAT_ADD_TO_ADDRESS,
@@ -10666,7 +10666,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_FULL_WIDTH_LAYOUT,
-   "メニュー項目のサイズ変更と配置を行うことで, 画面を最大限に活用します. 無効にすると, 古典的な固定幅の 2 列レイアウトを使用します."
+   "利用可能な画面スペースを最大限に活用するために、メニューエントリーのサイズと位置を変更します。無効にすると、従来の固定幅 2 カラムレイアウトを使用します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_LINEAR_FILTER,
@@ -10738,7 +10738,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_PARTICLE_EFFECT,
-   "背景の部分アニメーション効果を有効にします. パフォーマンスに大きな影響を与えます. "
+   "背景パーティクルアニメーション効果を有効にします。パフォーマンスに大きく影響します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_PARTICLE_EFFECT_SPEED,
@@ -11028,7 +11028,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_XMB_ANIMATION_MOVE_UP_DOWN,
-   "上下に移動するときのアニメーション. "
+   "上下に移動する際のアニメーションです。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_XMB_ANIMATION_OPENING_MAIN_MENU,
@@ -11036,7 +11036,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_XMB_ANIMATION_OPENING_MAIN_MENU,
-   "サブメニューを開いたときのアニメーション. "
+   "サブメニューを開く際のアニメーションです。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_ALPHA_FACTOR,
@@ -11100,7 +11100,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_RIBBON_ENABLE,
-   "背景アニメーション効果を選択します. 効果によってはGPUに大きな負荷をかけます. パフォーマンスが不足する場合, 効果をオフにするか, より単純な効果を選択してください. "
+   "背景アニメーション効果を選択します。効果によっては GPU に大きな負荷がかかります。パフォーマンスが不足する場合、オフにするかよりシンプルな効果を選択してください。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME,
@@ -11116,7 +11116,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_XMB_VERTICAL_THUMBNAILS,
-   "左側サムネイルを右側サムネイルの下に表示し, 両方ともスクリーンの右側に配置します。"
+   "左側サムネイルを画面右側の右側サムネイルの下に表示します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_XMB_THUMBNAIL_SCALE_FACTOR,
@@ -11124,7 +11124,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_XMB_THUMBNAIL_SCALE_FACTOR,
-   "最大許容幅でスケーリングして, サムネイル表示サイズを縮小します。"
+   "最大幅を設定することで、サムネイルの表示サイズを縮小します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_XMB_VERTICAL_FADE_FACTOR,
@@ -11437,7 +11437,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MATERIALUI_THUMBNAIL_BACKGROUND_ENABLE,
-   "サムネイル画像の背景に, 未使用領域のパディングを適用します. これにより, すべての画像の均一な表示サイズが確保され, 異なるサイズのサムネイルを表示する際のメニュー外観が改善されます."
+   "サムネイル画像の未使用スペースを単色の背景で塗りつぶします。すべての画像の表示サイズが均一になることで、基本サイズが異なるコンテンツが混在した際のメニューの見栄えを改善します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS_MATERIALUI,
@@ -12668,7 +12668,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FBO_SUPPORT,
-   "OpenGL/Direct3Dテクスチャーへのレンダリング(マルチパスシェーダ)対応"
+   "OpenGL/Direct3D テクスチャーへのレンダリング (マルチパスシェーダー) 対応"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_DIR,
@@ -12782,7 +12782,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_CHEAT_DELETE_ALL_INSTRUCTIONS,
-   "すべてのチートを削除するには, 右を5回押してください."
+   "すべてのチートを削除するには右を 5 回押してください。"
    )
 MSG_HASH(
    MSG_FAILED_TO_SAVE_DEBUG_INFO,
@@ -12902,7 +12902,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_NETPLAY_DIFFERENT_VERSIONS,
-   "警告: 相手が違うRetroArchバージョンを使っています. 問題があれば同じバージョンを使って下さい. "
+   "警告: ネットプレイピアが異なるバージョンの RetroArch を実行しています。問題が発生した場合、同じバージョンを使用してください。"
    )
 MSG_HASH(
    MSG_NETPLAY_DIFFERENT_CORES,
@@ -12910,7 +12910,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_NETPLAY_DIFFERENT_CORE_VERSIONS,
-   "警告: 相手が違うコアのバージョンを使っています. 問題があれば同じバージョンを使って下さい. "
+   "警告: ネットプレイピアが異なるバージョンのコアを実行しています。問題が発生した場合、同じバージョンを使用してください。"
    )
 MSG_HASH(
    MSG_NETPLAY_ENDIAN_DEPENDENT,
@@ -12950,7 +12950,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_NETPLAY_CANNOT_PLAY_UNPRIVILEGED,
-   "プレイする許可はありません"
+   "プレイする権限がありません"
    )
 MSG_HASH(
    MSG_NETPLAY_CANNOT_PLAY_NO_SLOTS,
@@ -13203,7 +13203,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_AUTO_SAVE_STATE_TO,
-   "自動ステートセーブ to"
+   "自動ステートセーブ:"
    )
 MSG_HASH(
    MSG_BRINGING_UP_COMMAND_INTERFACE_ON_PORT,
@@ -13363,7 +13363,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_ERROR_LIBRETRO_CORE_REQUIRES_SPECIAL_CONTENT,
-   "Libretro コアは特別なコンテンツを必要としていますが, それらが供給されていません。"
+   "Libretro コアは特別なコンテンツを必要としますが、何も提供されませんでした。"
    )
 MSG_HASH(
    MSG_ERROR_LIBRETRO_CORE_REQUIRES_VFS,
@@ -13511,7 +13511,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_FAILED_TO_SAVE_STATE_TO,
-   "ステートセーブに失敗しました to"
+   "ステートセーブに失敗しました:"
    )
 MSG_HASH(
    MSG_FAILED_TO_SEND_NICKNAME,
@@ -13563,7 +13563,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_FATAL_ERROR_RECEIVED_IN,
-   "致命的なエラーが発生しました in"
+   "致命的なエラーが発生しました:"
    )
 MSG_HASH(
    MSG_FILE_NOT_FOUND,
@@ -13711,7 +13711,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_FIRMWARE,
-   "ファームウェアファイルが見つかりませんでした"
+   "1 つ以上のファームウェアファイルが不足しています"
    )
 MSG_HASH(
    MSG_LOADING_CONTENT_FILE,
@@ -13739,7 +13739,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_MOVIE_FORMAT_DIFFERENT_SERIALIZER_VERSION,
-   "入力リプレイ動画フォーマットはシリアライザのバージョンが異なるようです. ほとんどの場合失敗します. "
+   "入力リプレイ動画フォーマットはシリアライザのバージョンが異なるようです。ほとんどの場合失敗します。"
    )
 MSG_HASH(
    MSG_MOVIE_PLAYBACK_ENDED,
@@ -13851,7 +13851,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_RESTARTING_RECORDING_DUE_TO_DRIVER_REINIT,
-   "ドライバの再初期化により, 録画を再スタートしています."
+   "ドライバが再初期化されたため、録画を再スタートしています。"
    )
 MSG_HASH(
    MSG_RESTORED_OLD_SAVE_STATE,
@@ -13907,7 +13907,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SAVED_SUCCESSFULLY_TO,
-   "保存に成功しました to"
+   "保存に成功しました:"
    )
 MSG_HASH(
    MSG_SAVING_RAM_TYPE,
@@ -13951,7 +13951,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_SLOW_MOTION_REWIND,
-   "スローモーション巻き戻し"
+   "スローモーションで巻き戻しています。"
    )
 MSG_HASH(
    MSG_SKIPPING_SRAM_LOAD,
@@ -14035,7 +14035,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_UNDID_LOAD_STATE,
-   "ステートロードを取り消しました"
+   "ステートロードを取り消しました。"
    )
 MSG_HASH(
    MSG_UNDOING_SAVE_STATE,
@@ -14059,7 +14059,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_USING_LIBRETRO_DUMMY_CORE_RECORDING_SKIPPED,
-   "Libretroダミーコアを使用します. 録画をスキップします."
+   "Libretro ダミーコアを使用します。録画をスキップしています。"
    )
 MSG_HASH(
    MSG_VALUE_CONNECT_DEVICE_FROM_A_VALID_PORT,
@@ -14083,7 +14083,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_VIEWPORT_SIZE_CALCULATION_FAILED,
-   "Viewport size calculation failed! Will continue using raw data. This will probably not work right ..."
+   "表示領域サイズの計算に失敗しました! RAW データを引き続き使用します。これはおそらく正常に動作しません…"
    )
 MSG_HASH(
    MSG_VIRTUAL_DISK_TRAY_EJECT,
@@ -14223,11 +14223,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_RUNAHEAD_ENABLED,
-   "先行実行を有効にしました. 遅延フレームを削除しました: %u."
+   "先行実行を有効にしました。遅延フレームを削除しました: %u。"
    )
 MSG_HASH(
    MSG_RUNAHEAD_ENABLED_WITH_SECOND_INSTANCE,
-   "2番目のインスタンスで先行実行を有効にしました. 遅延フレームを削除しました: %u."
+   "セカンダリインスタンスで先行実行を有効にしました。遅延フレームを削除しました: %u。"
    )
 MSG_HASH(
    MSG_RUNAHEAD_DISABLED,
@@ -14527,7 +14527,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_CORE_BACKUP_COMPLETE,
-   "コアのバックアップ完了: "
+   "コアのバックアップを完了しました: "
    )
 MSG_HASH(
    MSG_CORE_RESTORATION_ALREADY_INSTALLED,
@@ -14551,7 +14551,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_CORE_INSTALLATION_COMPLETE,
-   "コアのインストール完了: "
+   "コアのインストールを完了しました: "
    )
 MSG_HASH(
    MSG_CORE_RESTORATION_INVALID_CONTENT,
@@ -14721,7 +14721,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_FILE_BROWSER_OPEN_UWP_PERMISSIONS,
-   "Windowsファイルアクセス権限の設定を開く"
+   "Windows ファイルアクセス権限の設定を開く"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_OPEN_UWP_PERMISSIONS,
@@ -14857,7 +14857,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VALUE_CPU_PERF_MODE_BALANCED,
-   "現在の作業負荷に適応します。ほとんどデバイスとエミュレータで動作し、電力を節約するのに役立ちます。一部のデバイスでは、負荷の高いゲームやコアのパフォーマンスが低下する場合があります。"
+   "現在の負荷に応じて処理性能を調整します。ほとんどのデバイスとエミュレータで動作し、消費電力を軽減するのに役立ちます。一部のデバイスでは、システム要件が高いゲームやコアで実行速度が低下する場合があります。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CPU_POLICY_MIN_FREQ,
@@ -15198,7 +15198,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_RGA_SCALING,
-   "RGAスケーリングとバイキュービックフィルタリングです. ウィジェットが壊れる可能性があります."
+   "RGA スケーリングとバイキュービックフィルタリングです。ウィジェットが壊れる可能性があります。"
    )
 #else
 MSG_HASH(
@@ -15207,7 +15207,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_CTX_SCALING,
-   "ハードウェアコンテキストのスケーリングです. （利用可能な場合）"
+   "ハードウェアコンテキストのスケーリングです (利用可能な場合)。"
    )
 #endif
 #ifdef _3DS
@@ -15233,7 +15233,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_3DS_DISPLAY_MODE,
-   "3D 表示モードと 2D 表示モードを選択します. '3D'モードでは, クイックメニューを表示するときにピクセルが正方形になり, 深さエフェクトが適用されます. '2D' モードは最高のパフォーマンスを提供します."
+   "3D 表示モードと 2D 表示モードを選択します。[3D] モードでは、クイックメニューを表示する際にピクセルが正方形になり、奥行き効果が適用されます。[2D] モードは最高のパフォーマンスを提供します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CTR_VIDEO_MODE_2D_400X240,
@@ -15331,7 +15331,7 @@ MSG_HASH(
 #ifdef HAVE_QT
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_SCAN_FINISHED,
-   "スキャンが成功しました. <br><br>\nコンテンツを正確にスキャンするには:\n<ul><li>互換機コアがもうダウンロードされた</li>\n<li>オンラインアップデータで'コア情報'がもうアップデートされた</li>\n<li>オンラインアップデータで'データベース'がもうアップデートされた</li>\n<li>上記タスクの後にRetroArchを再起動してください. </li></ul>\nコンテンツが<a href=\"https://docs.libretro.com/guides/roms-playlists-thumbnails/#sources\">存在データベース</a>の一致が必要です. \nまだちゃんと動けないとバグを<a href=\"https://www.github.com/libretro/RetroArch/issues\">報告</a>できます. "
+   "スキャンを完了しました。<br><br>\nコンテンツを正確にスキャンするには、以下の手順を実施する必要があります:\n<ul><li>互換性のあるコアがダウンロードされている</li>\n<li>オンラインアップデータを使用して \"コア情報ファイル\" が更新されている</li>\n<li>オンラインアップデータを使用して \"データベース\" が更新されている</li>\n<li>上記の手順を実施した後、RetroArch を再起動してください。</li></ul>\nコンテンツは<a href=\"https://docs.libretro.com/guides/roms-playlists-thumbnails/#sources\">既存のデータベース</a>と一致する必要があります。\nそれでも上手くいかない場合は、<a href=\"https://www.github.com/libretro/RetroArch/issues\">バグレポートの送信</a>を検討してください。"
    )
 #endif
 MSG_HASH(
