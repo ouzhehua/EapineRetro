@@ -601,6 +601,7 @@ INPUT
 ============================================================ */
 
 #include "../input/input_driver.c"
+#include "../input/input_driver_eapine.c"
 #include "../input/input_keymaps.c"
 #include "../tasks/task_autodetect.c"
 #include "../input/input_autodetect_builtin.c"

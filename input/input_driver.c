@@ -26,6 +26,7 @@
 #include <retro_endianness.h>
 
 #include "input_driver.h"
+#include "input_driver_eapine.h"
 #include "input_keymaps.h"
 #include "input_remapping.h"
 #include "input_osk.h"
@@ -6410,6 +6411,14 @@ void input_driver_poll(void)
       {
          if (settings->bools.network_remote_enable_user[user])
          {
+            //Eapine Code
+            if (true)
+            {
+               eapine_message_parse(input_st, user);
+               eapine_check_input_valid(&input_st->remote_st_ptr, user);
+               continue;
+            }
+
 #if defined(HAVE_NETWORKING) && defined(HAVE_NETWORKGAMEPAD)
             fd_set fds;
             ssize_t ret;
