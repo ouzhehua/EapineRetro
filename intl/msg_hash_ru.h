@@ -2063,6 +2063,14 @@ MSG_HASH(
    "Скриншоты с GPU"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SCAN_SUBFRAMES,
+   "Симуляция плавающей строки развёртки"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_SCAN_SUBFRAMES,
+   "Имитирует плавающую строку развёртки поверх нескольких подкадров путём разделения экрана по вертикали и отрисовки каждой его части в зависимости от количества подкадров."
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_GPU_SCREENSHOT,
    "Если поддерживается, делать скриншоты изображения после обработки GPU."
    )
@@ -5417,6 +5425,30 @@ MSG_HASH(
    "Задержка срабатывания курка, чтобы предоставить время для смещения курсора. Также используется для регистрации правильного количества одновременных нажатий."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_TWO_TOUCH_INPUT,
+   "Ввод при касании двумя пальцами"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_LIGHTGUN_TWO_TOUCH_INPUT,
+   "Выбор события ввода при касании экрана двумя пальцами. Для правильного срабатывания других действий задержка курка не должна равняться нулю."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_THREE_TOUCH_INPUT,
+   "Ввод при касании тремя пальцами"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_LIGHTGUN_THREE_TOUCH_INPUT,
+   "Выбор события ввода при касании экрана тремя пальцами. Для правильного срабатывания других действий задержка курка не должна равняться нулю."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_FOUR_TOUCH_INPUT,
+   "Ввод при касании четырьмя пальцами"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_LIGHTGUN_FOUR_TOUCH_INPUT,
+   "Выбор события ввода при касании экрана четырьмя пальцами. Для правильного срабатывания других действий задержка курка не должна равняться нулю."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_ALLOW_OFFSCREEN,
    "Разрешить прицел вне экрана"
    )
@@ -6550,6 +6582,24 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_ADD_TO_FAVORITES,
    "Показывать опцию 'Добавить в избранное'."
    )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ADD_TO_PLAYLIST,
+   "Добавить в плейлист"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ADD_TO_PLAYLIST,
+   "Добавить контент в плейлист."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CREATE_NEW_PLAYLIST,
+   "Создать новый плейлист"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CREATE_NEW_PLAYLIST,
+   "Создать новый плейлист и добавить в него текущую запись."
+   )
+
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_SET_CORE_ASSOCIATION,
    "Показывать 'Привязать ядро'"
