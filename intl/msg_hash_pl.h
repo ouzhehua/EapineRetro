@@ -5939,6 +5939,14 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_ADD_TO_PLAYLIST,
    "Dodaj zawartość do listy odtwarzania."
    )
+MSG_HASH(
+   MSG_ADDED_TO_PLAYLIST,
+   "Dodano do playlisty"
+   )
+MSG_HASH(
+   MSG_ADD_TO_PLAYLIST_FAILED,
+   "Nie udało się dodać do playlisty: playlista pełna"
+   )
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_SET_CORE_ASSOCIATION,
@@ -8852,6 +8860,18 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ACHIEVEMENT_RESUME,
    "Wznów tryb osiągnięć hardcore"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_IDENTIFYING_GAME,
+   "Rozpoznawanie gry"
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_FETCHING_GAME_DATA,
+   "Pobieranie danych gry"
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_STARTING_SESSION,
+   "Rozpoczynanie sesji"
+)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NOT_LOGGED_IN,
    "Nie jesteś zalogowany"

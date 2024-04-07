@@ -301,8 +301,6 @@ static void accessibility_speak(const char *text)
    settings_t *settings = config_get_ptr();
    unsigned speed       = settings->uints.accessibility_narrator_speech_speed;
    bool narrator_on     = settings->bools.accessibility_enable;
-   const char* voice    = ai_service_get_str(settings->uints.ai_service_target_lang);
-
    navigation_say(narrator_on, speed, text, 10);
 #endif
 }
@@ -395,6 +393,7 @@ static INLINE bool translation_user_error(const char *message)
    return translation_user_message(message, true);
 }
 
+#if 0
 /**
  * Displays the given message on screen and returns true. Returns false if no
  * {message} is provided (i.e. it is NULL). The message will be displayed as
@@ -405,6 +404,7 @@ static INLINE bool translation_user_info(const char *message)
 {
    return translation_user_message(message, false);
 }
+#endif
 
 /**
  * Displays the given hash on screen and returns true. Returns false if no
@@ -490,7 +490,6 @@ static void call_auto_translate_hndl(retro_task_t *task)
    int *mode_ptr               = (int*)task->user_data;
    uint32_t runloop_flags      = runloop_get_flags();
    access_state_t *access_st   = access_state_get_ptr();
-   settings_t *settings        = config_get_ptr();
 
    if (task_get_cancelled(task))
       goto finish;
@@ -508,7 +507,7 @@ static void call_auto_translate_hndl(retro_task_t *task)
       case 4: /* Text + Narrator  */
       case 5: /* Image + Narrator */
 #ifdef HAVE_ACCESSIBILITY
-         if (!is_narrator_running(settings->bools.accessibility_enable))
+         if (!is_narrator_running(config_get_ptr()->bools.accessibility_enable))
             goto finish;
 #endif
          break;
@@ -1753,11 +1752,11 @@ finish:
  */
 bool run_translation_service(settings_t *settings, bool paused)
 {
-   unsigned i;
    retro_task_t *task               = NULL;
    access_request_t *request        = NULL;
    access_state_t *access_st        = access_state_get_ptr();
 #ifdef HAVE_ACCESSIBILITY
+   unsigned i;
    input_driver_state_t *input_st   = input_state_get_ptr();
 #endif
 
