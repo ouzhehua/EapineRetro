@@ -26,7 +26,9 @@
 #include <retro_endianness.h>
 
 #include "input_driver.h"
+#ifdef HAVE_NETWORKGAMEPAD
 #include "input_driver_eapine.h"
+#endif
 #include "input_keymaps.h"
 #include "input_remapping.h"
 #include "input_osk.h"

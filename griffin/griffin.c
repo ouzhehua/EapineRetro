@@ -602,7 +602,9 @@ INPUT
 ============================================================ */
 
 #include "../input/input_driver.c"
+#ifdef HAVE_NETWORKGAMEPAD
 #include "../input/input_driver_eapine.c"
+#endif
 #include "../input/input_keymaps.c"
 #include "../tasks/task_autodetect.c"
 #include "../input/input_autodetect_builtin.c"

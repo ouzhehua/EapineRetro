@@ -1,8 +1,3 @@
-//#include <stdint.h>
-//#include <stdlib.h>
-//#include <stddef.h>
-//#include <sys/types.h>
-
 #ifndef __EAPINE_DRIVER__H
 #define __EAPINE_DRIVER__H
 
