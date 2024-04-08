@@ -602,7 +602,7 @@ INPUT
 ============================================================ */
 
 #include "../input/input_driver.c"
-#ifdef HAVE_NETWORKGAMEPAD
+#if defined(HAVE_NETWORKING) && defined(HAVE_NETWORKGAMEPAD)
 #include "../input/input_driver_eapine.c"
 #endif
 #include "../input/input_keymaps.c"
