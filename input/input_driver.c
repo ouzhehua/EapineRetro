@@ -6413,15 +6413,16 @@ void input_driver_poll(void)
       {
          if (settings->bools.network_remote_enable_user[user])
          {
-            //Eapine Code
+#if defined(HAVE_NETWORKING) && defined(HAVE_NETWORKGAMEPAD)
+            //Eapine Code Begin
             if (true)
             {
                eapine_message_parse(input_st, user);
                eapine_check_input_valid(&input_st->remote_st_ptr, user);
                continue;
             }
+            //Eapine Code End
 
-#if defined(HAVE_NETWORKING) && defined(HAVE_NETWORKGAMEPAD)
             fd_set fds;
             ssize_t ret;
             struct remote_message msg;
