@@ -6967,10 +6967,6 @@ MSG_HASH(
    "AI 서비스 출력"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_AI_SERVICE_MODE,
-   "번역 결과를 이미지 오버레이로 표시하거나(이미지 모드), 오디오로 직접 출력하거나(음성), TTS로 읽어주거나(나레이터), 텍스트 오버레이로 표시합니다(텍스트)."
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_URL,
    "AI 서비스 URL"
    )
@@ -7009,30 +7005,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AI_SERVICE_TARGET_LANG,
    "서비스가 번역하여 표시할 언어입니다. '기본'을 선택하면 영어로 번역합니다."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AI_SERVICE_POLL_DELAY,
-   "AI 서비스 자동 폴링 딜레이"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_AI_SERVICE_POLL_DELAY,
-   "자동 호출 사이의 최소 딜레이(ms)입니다. 반응성이 낮아지지만 CPU 성능을 높일 수 있습니다."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION,
-   "AI 서비스 텍스트 위치 재정의"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_AI_SERVICE_TEXT_POSITION,
-   "AI 서비스를 텍스트 모드로 사용할 때, 오버레이의 위치를 재정의합니다."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_PADDING,
-   "AI 서비스 텍스트 패딩 (%)"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_AI_SERVICE_TEXT_PADDING,
-   "AI 서비스를 텍스트 모드로 사용할 때, 텍스트 오버레이에 적용될 수직 패딩입니다. 패딩을 늘리면 텍스트가 화면 가운데로 밀려납니다."
    )
 
 /* Settings > Accessibility */
@@ -10278,26 +10250,6 @@ MSG_HASH(
    "나레이터 모드"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_MODE,
-   "텍스트 모드"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_NARRATOR_MODE,
-   "텍스트 + 나레이터"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AI_SERVICE_IMAGE_NARRATOR_MODE,
-   "이미지 + 나레이터"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_BOTTOM,
-   "아래"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AI_SERVICE_TEXT_POSITION_TOP,
-   "상단"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_ENTRY_REMOVE_ENABLE_HIST_FAV,
    "최근 실행 & 즐겨찾기"
    )
@@ -13099,22 +13051,6 @@ MSG_HASH( /* FIXME Should be MSG_ */
 MSG_HASH( /* FIXME Should be MSG_ */
    MENU_ENUM_LABEL_VALUE_SIDELOAD_CORE_ERROR,
    "코어 설치 실패"
-   )
-MSG_HASH(
-   MSG_AI_VIDEO_DRIVER_NOT_SUPPORTED,
-   "이 비디오 드라이버에서는 AI 서비스를 사용할 수 없습니다."
-   )
-MSG_HASH(
-   MSG_AI_AUTO_MODE_ENABLED,
-   "자동 번역이 활성화되었습니다."
-   )
-MSG_HASH(
-   MSG_AI_AUTO_MODE_DISABLED,
-   "자동 번역이 비활성화되었습니다."
-   )
-MSG_HASH(
-   MSG_AI_NOTHING_TO_TRANSLATE,
-   "번역할 것이 없습니다."
    )
 MSG_HASH(
    MSG_CHEAT_DELETE_ALL_INSTRUCTIONS,
