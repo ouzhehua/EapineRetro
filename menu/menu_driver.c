@@ -303,6 +303,9 @@ const menu_ctx_driver_t *menu_ctx_drivers[] = {
 #if defined(HAVE_OZONE)
    &menu_ctx_ozone,
 #endif
+#if defined(HAVE_EAPINE_DESKTOP)
+   &menu_ctx_eapine_desktop,
+#endif
 #if defined(HAVE_RGUI)
    &menu_ctx_rgui,
 #endif
@@ -3894,6 +3897,8 @@ static enum menu_driver_id_type menu_driver_set_id(
          return MENU_DRIVER_ID_RGUI;
       else if (string_is_equal(driver_name, "ozone"))
          return MENU_DRIVER_ID_OZONE;
+      else if (string_is_equal(driver_name, "eapine_desktop"))
+         return MENU_DRIVER_ID_EAPINE_DESKTOP;
       else if (string_is_equal(driver_name, "glui"))
          return MENU_DRIVER_ID_GLUI;
       else if (string_is_equal(driver_name, "xmb"))

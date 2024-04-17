@@ -183,7 +183,7 @@ static int action_get_title_left_thumbnails(
 {
    const char *title               = NULL;
    enum msg_hash_enums label_value = MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS;
-#if defined(HAVE_RGUI) || defined(HAVE_OZONE) || defined(HAVE_MATERIALUI)
+#if defined(HAVE_RGUI) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_MATERIALUI)
    const char *menu_ident          = menu_driver_ident();
    /* Get label value */
 #ifdef HAVE_RGUI
@@ -193,6 +193,10 @@ static int action_get_title_left_thumbnails(
 #ifdef HAVE_OZONE
    if (string_is_equal(menu_ident, "ozone"))
       label_value = MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE;
+#endif
+#ifdef HAVE_EAPINE_DESKTOP
+   if (string_is_equal(menu_ident, "eapine_desktop"))
+      label_value = MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_EAPINE_DESKTOP;
 #endif
 #ifdef HAVE_MATERIALUI
    if (string_is_equal(menu_ident, "glui"))

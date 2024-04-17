@@ -264,6 +264,7 @@ enum menu_driver_enum
    MENU_XMB,
    MENU_STRIPES,
    MENU_OZONE,
+   MENU_EAPINE_DESKTOP,
    MENU_NULL
 };
 
@@ -734,6 +735,8 @@ static const enum menu_driver_enum MENU_DEFAULT_DRIVER = MENU_RGUI;
 static const enum menu_driver_enum MENU_DEFAULT_DRIVER = MENU_MATERIALUI;
 #elif defined(HAVE_OZONE)
 static const enum menu_driver_enum MENU_DEFAULT_DRIVER = MENU_OZONE;
+#elif defined(HAVE_EAPINE_DESKTOP)
+static const enum menu_driver_enum MENU_DEFAULT_DRIVER = MENU_EAPINE_DESKTOP;
 #elif defined(HAVE_XMB) && !defined(_XBOX)
 static const enum menu_driver_enum MENU_DEFAULT_DRIVER = MENU_XMB;
 #elif defined(HAVE_RGUI)
@@ -1390,6 +1393,8 @@ const char *config_get_default_menu(void)
          return "rgui";
       case MENU_OZONE:
          return "ozone";
+      case MENU_EAPINE_DESKTOP:
+         return "eapine_desktop";
       case MENU_MATERIALUI:
          return "glui";
       case MENU_XMB:
@@ -2024,11 +2029,11 @@ static struct config_bool_setting *populate_settings_bool(
    SETTING_BOOL("xmb_vertical_thumbnails",       &settings->bools.menu_xmb_vertical_thumbnails, true, DEFAULT_XMB_VERTICAL_THUMBNAILS, false);
    SETTING_BOOL("menu_xmb_show_title_header",    &settings->bools.menu_xmb_show_title_header, true, DEFAULT_XMB_SHOW_TITLE_HEADER, false);
 #endif
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
    SETTING_BOOL("ozone_collapse_sidebar",        &settings->bools.ozone_collapse_sidebar, true, DEFAULT_OZONE_COLLAPSE_SIDEBAR, false);
    SETTING_BOOL("ozone_scroll_content_metadata", &settings->bools.ozone_scroll_content_metadata, true, DEFAULT_OZONE_SCROLL_CONTENT_METADATA, false);
 #endif
-#if defined(HAVE_OZONE) || defined(HAVE_XMB)
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_XMB)
    SETTING_BOOL("ozone_truncate_playlist_name",            &settings->bools.ozone_truncate_playlist_name, true, DEFAULT_OZONE_TRUNCATE_PLAYLIST_NAME, false);
    SETTING_BOOL("ozone_sort_after_truncate_playlist_name", &settings->bools.ozone_sort_after_truncate_playlist_name, true, DEFAULT_OZONE_SORT_AFTER_TRUNCATE_PLAYLIST_NAME, false);
 #endif
@@ -2207,10 +2212,10 @@ static struct config_float_setting *populate_settings_float(
 #ifdef HAVE_RGUI
    SETTING_FLOAT("rgui_particle_effect_speed",   &settings->floats.menu_rgui_particle_effect_speed, true, DEFAULT_RGUI_PARTICLE_EFFECT_SPEED, false);
 #endif
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
    SETTING_FLOAT("menu_screensaver_animation_speed", &settings->floats.menu_screensaver_animation_speed, true, DEFAULT_MENU_SCREENSAVER_ANIMATION_SPEED, false);
 #endif
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
    SETTING_FLOAT("ozone_thumbnail_scale_factor", &settings->floats.ozone_thumbnail_scale_factor, true, DEFAULT_OZONE_THUMBNAIL_SCALE_FACTOR, false);
 #endif
 #endif /* HAVE_MENU */
@@ -2312,10 +2317,10 @@ static struct config_uint_setting *populate_settings_uint(
    SETTING_UINT("menu_ticker_type",              &settings->uints.menu_ticker_type, true, DEFAULT_MENU_TICKER_TYPE, false);
    SETTING_UINT("menu_scroll_delay",             &settings->uints.menu_scroll_delay, true, DEFAULT_MENU_SCROLL_DELAY, false);
    SETTING_UINT("menu_screensaver_timeout",      &settings->uints.menu_screensaver_timeout, true, DEFAULT_MENU_SCREENSAVER_TIMEOUT, false);
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
    SETTING_UINT("menu_screensaver_animation",    &settings->uints.menu_screensaver_animation, true, DEFAULT_MENU_SCREENSAVER_ANIMATION, false);
 #endif
-#if defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
    SETTING_UINT("menu_remember_selection",       &settings->uints.menu_remember_selection, true, DEFAULT_MENU_REMEMBER_SELECTION, false);
 #endif
 #ifdef HAVE_RGUI
@@ -2349,7 +2354,7 @@ static struct config_uint_setting *populate_settings_uint(
    SETTING_UINT("materialui_thumbnail_view_landscape",      &settings->uints.menu_materialui_thumbnail_view_landscape, true, DEFAULT_MATERIALUI_THUMBNAIL_VIEW_LANDSCAPE, false);
    SETTING_UINT("materialui_landscape_layout_optimization", &settings->uints.menu_materialui_landscape_layout_optimization, true, DEFAULT_MATERIALUI_LANDSCAPE_LAYOUT_OPTIMIZATION, false);
 #endif
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
    SETTING_UINT("ozone_menu_color_theme",        &settings->uints.menu_ozone_color_theme, true, DEFAULT_OZONE_COLOR_THEME, false);
 #endif
 #endif /* HAVE_MENU */

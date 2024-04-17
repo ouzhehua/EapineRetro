@@ -1189,7 +1189,7 @@ void runtime_update_playlist(
    runtime_log_t *runtime_log             = NULL;
    const struct playlist_entry *entry     = NULL;
    struct playlist_entry update_entry     = {0};
-#if defined(HAVE_MENU) && (defined(HAVE_OZONE) || defined(HAVE_MATERIALUI))
+#if defined(HAVE_MENU) && (defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_MATERIALUI))
    const char *menu_ident                 = menu_driver_ident();
 #endif
 
@@ -1254,12 +1254,13 @@ void runtime_update_playlist(
       free(runtime_log);
    }
 
-#if defined(HAVE_MENU) && (defined(HAVE_OZONE) || defined(HAVE_MATERIALUI))
+#if defined(HAVE_MENU) && (defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_MATERIALUI))
    /* Ozone and GLUI require runtime/last played strings
     * to be populated even when no runtime is recorded */
    if (update_entry.runtime_status != PLAYLIST_RUNTIME_VALID)
    {
       if (string_is_equal(menu_ident, "ozone") ||
+          string_is_equal(menu_ident, "eapine_desktop") ||
           string_is_equal(menu_ident, "glui"))
       {
          runtime_log_get_runtime_str(NULL,
@@ -1297,7 +1298,7 @@ void runtime_update_contentless_core(
    core_info_t *core_info                       = NULL;
    runtime_log_t *runtime_log                   = NULL;
    contentless_core_runtime_info_t runtime_info = {0};
-#if (defined(HAVE_OZONE) || defined(HAVE_MATERIALUI))
+#if (defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_MATERIALUI))
    const char *menu_ident                       = menu_driver_ident();
 #endif
 
@@ -1347,12 +1348,13 @@ void runtime_update_contentless_core(
       free(runtime_log);
    }
 
-#if (defined(HAVE_OZONE) || defined(HAVE_MATERIALUI))
+#if (defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_MATERIALUI))
    /* Ozone and GLUI require runtime/last played strings
     * to be populated even when no runtime is recorded */
    if (runtime_info.status != CONTENTLESS_CORE_RUNTIME_VALID)
    {
       if (   string_is_equal(menu_ident, "ozone")
+          || string_is_equal(menu_ident, "eapine_desktop")
           || string_is_equal(menu_ident, "glui"))
       {
          runtime_log_get_runtime_str(NULL,

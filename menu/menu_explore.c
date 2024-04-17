@@ -854,7 +854,7 @@ static int explore_action_sublabel_spacer(
       file_list_t *list, unsigned type, unsigned i,
       const char *label, const char *path, char *s, size_t len)
 {
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
    const char *menu_driver = menu_driver_ident();
    /* Only add a blank 'spacer' sublabel when
     * using Ozone
@@ -862,7 +862,7 @@ static int explore_action_sublabel_spacer(
     * > In RGUI it does nothing other than
     *   unnecessarily blank out the fallback
     *   core title text in the sublabel area */
-   if (string_is_equal(menu_driver, "ozone"))
+   if (string_is_equal(menu_driver, "ozone") || string_is_equal(menu_driver, "eapine_desktop"))
    {
       s[0] = ' ';
       s[1] = '\0';

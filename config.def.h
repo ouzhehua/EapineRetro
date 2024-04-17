@@ -643,7 +643,7 @@
 #define DEFAULT_MENU_USE_PREFERRED_SYSTEM_COLOR_THEME false
 #endif
 
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
 /* Ozone colour theme: 1 == Basic Black */
 #define DEFAULT_OZONE_COLOR_THEME 1
 #define DEFAULT_OZONE_COLLAPSE_SIDEBAR false
@@ -651,7 +651,7 @@
 #define DEFAULT_OZONE_THUMBNAIL_SCALE_FACTOR 1.0f
 #endif
 
-#if defined(HAVE_OZONE) || defined(HAVE_XMB)
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_XMB)
 #define DEFAULT_OZONE_TRUNCATE_PLAYLIST_NAME true
 #define DEFAULT_OZONE_SORT_AFTER_TRUNCATE_PLAYLIST_NAME false
 #endif
@@ -767,7 +767,7 @@
  * the screensaver */
 #define DEFAULT_MENU_SCREENSAVER_TIMEOUT 0
 
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
 /* When menu screensaver is enabled, specifies
  * animation effect and animation speed */
 #define DEFAULT_MENU_SCREENSAVER_ANIMATION MENU_SCREENSAVER_BLANK

@@ -1341,7 +1341,7 @@ MENU
 #ifdef HAVE_MENU
 #include "../menu/menu_driver.c"
 #include "../menu/menu_setting.c"
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)|| defined(HAVE_EAPINE_DESKTOP)
 #include "../menu/menu_screensaver.c"
 #endif
 
@@ -1376,6 +1376,10 @@ MENU
 
 #ifdef HAVE_OZONE
 #include "../menu/drivers/ozone.c"
+#endif
+
+#ifdef HAVE_EAPINE_DESKTOP
+#include "../menu/drivers/eapine_desktop.c"
 #endif
 
 #ifdef HAVE_MATERIALUI

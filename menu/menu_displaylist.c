@@ -87,7 +87,7 @@
 #if defined(HAVE_CG) || defined(HAVE_GLSL) || defined(HAVE_SLANG) || defined(HAVE_HLSL)
 #include "menu_shader.h"
 #endif
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
 #include "menu_screensaver.h"
 #endif
 #if defined(HAVE_FFMPEG) || defined(HAVE_MPV)
@@ -2286,7 +2286,7 @@ static int menu_displaylist_parse_playlist(
       return 0;
 
    /* Check whether core name should be added to playlist entries */
-   if (   !string_is_equal(menu_driver, "ozone")
+   if (   !string_is_equal(menu_driver, "ozone") && !string_is_equal(menu_driver, "eapine_desktop")
        && !pl_show_sublabels
        && ((pl_show_inline_core_name == PLAYLIST_INLINE_CORE_DISPLAY_ALWAYS)
        ||  (!is_collection
@@ -4179,10 +4179,11 @@ static unsigned menu_displaylist_parse_playlists(
    if (!horizontal)
    {
       bool show_add_content  = false;
-#if defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
       const char *menu_ident = menu_driver_ident();
       if (   string_is_equal(menu_ident, "xmb")
-          || string_is_equal(menu_ident, "ozone"))
+          || string_is_equal(menu_ident, "ozone")
+          || string_is_equal(menu_ident, "eapine_desktop"))
          show_add_content = settings->bools.menu_content_show_add;
       else
 #endif
@@ -4748,6 +4749,13 @@ static bool menu_displaylist_parse_playlist_manager_settings(
    {
       right_thumbnail_label_value = MENU_ENUM_LABEL_VALUE_THUMBNAILS;
       left_thumbnail_label_value  = MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE;
+   }
+#endif
+#ifdef HAVE_EAPINE_DESKTOP
+   if (string_is_equal(menu_driver, "eapine_desktop"))
+   {
+      right_thumbnail_label_value = MENU_ENUM_LABEL_VALUE_THUMBNAILS;
+      left_thumbnail_label_value = MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_EAPINE_DESKTOP;
    }
 #endif
 #ifdef HAVE_MATERIALUI
@@ -9159,7 +9167,7 @@ unsigned menu_displaylist_build_list(
 #endif
             struct menu_state    *menu_st   = menu_state_get_ptr();
             bool menu_screensaver_supported = ((menu_st->flags & MENU_ST_FLAG_SCREENSAVER_SUPPORTED) > 0);
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             enum menu_screensaver_effect menu_screensaver_animation =
                   (enum menu_screensaver_effect)
                   settings->uints.menu_screensaver_animation;
@@ -9234,7 +9242,7 @@ unsigned menu_displaylist_build_list(
                      if (menu_screensaver_supported)
                         build_list[i].checked = true;
                      break;
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
                   case MENU_ENUM_LABEL_MENU_SCREENSAVER_ANIMATION:
                      if (menu_screensaver_supported)
                         build_list[i].checked = true;
@@ -9245,7 +9253,7 @@ unsigned menu_displaylist_build_list(
                         build_list[i].checked = true;
                      break;
 #endif
-#if defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
                   case MENU_ENUM_LABEL_MENU_REMEMBER_SELECTION:
                         build_list[i].checked = true;
                      break;
@@ -14528,7 +14536,7 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
             {
                rarch_system_info_t *sys_info  = &runloop_state_get_ptr()->system;
                bool show_add_content          = false;
-#if defined(HAVE_RGUI) || defined(HAVE_MATERIALUI) || defined(HAVE_OZONE) || defined(HAVE_XMB)
+#if defined(HAVE_RGUI) || defined(HAVE_MATERIALUI) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_XMB)
                const char *menu_ident         = menu_driver_ident();
 #endif
                uint32_t flags                 = runloop_get_flags();
@@ -14626,9 +14634,10 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
                      count++;
 #endif
 
-#if defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
                if (     string_is_equal(menu_ident, "xmb")
-                     || string_is_equal(menu_ident, "ozone"))
+                     || string_is_equal(menu_ident, "ozone")
+                     || string_is_equal(menu_ident, "eapine_desktop"))
                   show_add_content = settings->bools.menu_content_show_add;
                else
 #endif

@@ -145,6 +145,9 @@ static int menu_action_sublabel_contentless_core(file_list_t *list,
 #ifdef HAVE_OZONE
             || string_is_equal(menu_ident, "ozone")
 #endif
+#ifdef HAVE_EAPINE_DESKTOP
+            || string_is_equal(menu_ident, "eapine_desktop")
+#endif
          )
          display_runtime = false;
 
@@ -809,11 +812,11 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_menu_savestate_resume,         MENU_
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_menu_insert_disk_resume,       MENU_ENUM_SUBLABEL_MENU_INSERT_DISK_RESUME)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_quit_on_close_content,         MENU_ENUM_SUBLABEL_QUIT_ON_CLOSE_CONTENT)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_menu_screensaver_timeout,      MENU_ENUM_SUBLABEL_MENU_SCREENSAVER_TIMEOUT)
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_menu_screensaver_animation,       MENU_ENUM_SUBLABEL_MENU_SCREENSAVER_ANIMATION)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_menu_screensaver_animation_speed, MENU_ENUM_SUBLABEL_MENU_SCREENSAVER_ANIMATION_SPEED)
 #endif
-#if defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_menu_remember_selection,       MENU_ENUM_SUBLABEL_MENU_REMEMBER_SELECTION)
 #endif
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_video_driver,                  MENU_ENUM_SUBLABEL_VIDEO_DRIVER)
@@ -914,14 +917,14 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_left_thumbnails,               MENU_
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_left_thumbnails_rgui,          MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS_RGUI)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_thumbnails_rgui,               MENU_ENUM_SUBLABEL_THUMBNAILS_RGUI)
 #endif
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_left_thumbnails_ozone,                   MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS_OZONE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ozone_menu_color_theme,                  MENU_ENUM_SUBLABEL_OZONE_MENU_COLOR_THEME)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ozone_collapse_sidebar,                  MENU_ENUM_SUBLABEL_OZONE_COLLAPSE_SIDEBAR)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ozone_scroll_content_metadata,           MENU_ENUM_SUBLABEL_OZONE_SCROLL_CONTENT_METADATA)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ozone_thumbnail_scale_factor,            MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR)
 #endif
-#if defined(HAVE_OZONE) || defined(HAVE_XMB)
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_XMB)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ozone_truncate_playlist_name,            MENU_ENUM_SUBLABEL_OZONE_TRUNCATE_PLAYLIST_NAME)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_ozone_sort_after_truncate_playlist_name, MENU_ENUM_SUBLABEL_OZONE_SORT_AFTER_TRUNCATE_PLAYLIST_NAME)
 #endif
@@ -1887,7 +1890,7 @@ static int action_bind_sublabel_playlist_entry(
    playlist_t *playlist                      = NULL;
    const struct playlist_entry *entry        = NULL;
    size_t playlist_index                     = i;
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
    const char *menu_ident                    = (menu_st->driver_ctx && menu_st->driver_ctx->ident) ? menu_st->driver_ctx->ident : NULL;
 #endif
    settings_t *settings                      = config_get_ptr();
@@ -1910,6 +1913,10 @@ static int action_bind_sublabel_playlist_entry(
       return 0;
 #ifdef HAVE_OZONE
    if (string_is_equal(menu_ident, "ozone"))
+      return 0;
+#endif
+#ifdef HAVE_EAPINE_DESKTOP
+   if (string_is_equal(menu_ident, "eapine_desktop"))
       return 0;
 #endif
 
@@ -3119,32 +3126,32 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_menu_use_preferred_system_color_theme);
             break;
          case MENU_ENUM_LABEL_OZONE_MENU_COLOR_THEME:
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ozone_menu_color_theme);
 #endif
             break;
          case MENU_ENUM_LABEL_OZONE_COLLAPSE_SIDEBAR:
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ozone_collapse_sidebar);
 #endif
             break;
          case MENU_ENUM_LABEL_OZONE_TRUNCATE_PLAYLIST_NAME:
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ozone_truncate_playlist_name);
 #endif
             break;
          case MENU_ENUM_LABEL_OZONE_SORT_AFTER_TRUNCATE_PLAYLIST_NAME:
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ozone_sort_after_truncate_playlist_name);
 #endif
             break;
          case MENU_ENUM_LABEL_OZONE_SCROLL_CONTENT_METADATA:
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ozone_scroll_content_metadata);
 #endif
             break;
          case MENU_ENUM_LABEL_OZONE_THUMBNAIL_SCALE_FACTOR:
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_ozone_thumbnail_scale_factor);
 #endif
             break;
@@ -3624,6 +3631,13 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
                   }
                   else
 #endif
+#ifdef HAVE_EAPINE_DESKTOP
+                  if (string_is_equal(menu_ident, "eapine_desktop"))
+                  {
+                     BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_left_thumbnails_ozone);
+                  }
+                  else
+#endif
 #ifdef HAVE_MATERIALUI
                      if (string_is_equal(menu_ident, "glui"))
                      {
@@ -3901,7 +3915,7 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
          case MENU_ENUM_LABEL_MENU_SCREENSAVER_TIMEOUT:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_menu_screensaver_timeout);
             break;
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
          case MENU_ENUM_LABEL_MENU_SCREENSAVER_ANIMATION:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_menu_screensaver_animation);
             break;
@@ -3909,7 +3923,7 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_menu_screensaver_animation_speed);
             break;
 #endif
-#if defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
          case MENU_ENUM_LABEL_MENU_REMEMBER_SELECTION:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_menu_remember_selection);
             break;
@@ -5090,6 +5104,13 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
 #endif
 #ifdef HAVE_OZONE
                   if (string_is_equal(menu_ident, "ozone"))
+                  {
+                     BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_left_thumbnails_ozone);
+                  }
+                  else
+#endif
+#ifdef HAVE_EAPINE_DESKTOP
+                  if (string_is_equal(menu_ident, "eapine_desktop"))
                   {
                      BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_left_thumbnails_ozone);
                   }

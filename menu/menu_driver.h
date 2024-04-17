@@ -750,6 +750,7 @@ size_t menu_driver_get_thumbnail_system(void *data, char *s, size_t len);
 extern const menu_ctx_driver_t *menu_ctx_drivers[];
 
 extern menu_ctx_driver_t menu_ctx_ozone;
+extern menu_ctx_driver_t menu_ctx_eapine_desktop;
 extern menu_ctx_driver_t menu_ctx_rgui;
 extern menu_ctx_driver_t menu_ctx_mui;
 extern menu_ctx_driver_t menu_ctx_xmb;

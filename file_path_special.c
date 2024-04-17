@@ -246,7 +246,7 @@ void fill_pathname_application_special(char *s,
          {
 #ifdef HAVE_MENU
             settings_t *settings   = config_get_ptr();
-#if defined(HAVE_XMB) || defined(HAVE_MATERIALUI) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_MATERIALUI) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             const char *menu_ident = settings->arrays.menu_driver;
 #endif
             const char *dir_assets = settings->paths.directory_assets;
@@ -262,9 +262,10 @@ void fill_pathname_application_special(char *s,
             }
             else
 #endif
-#if defined(HAVE_MATERIALUI) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             if (     string_is_equal(menu_ident, "glui") 
-                  || string_is_equal(menu_ident, "ozone"))
+                  || string_is_equal(menu_ident, "ozone")
+                  || string_is_equal(menu_ident, "eapine_desktop"))
             {
                char s4[PATH_MAX_LENGTH];
                fill_pathname_join_special(s4, dir_assets, menu_ident, sizeof(s4));
@@ -284,7 +285,7 @@ void fill_pathname_application_special(char *s,
          {
 #ifdef HAVE_MENU
             settings_t *settings   = config_get_ptr();
-#if defined(HAVE_XMB) || defined(HAVE_MATERIALUI) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_MATERIALUI) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
             const char *menu_ident = settings->arrays.menu_driver;
 #endif
 
@@ -300,8 +301,9 @@ void fill_pathname_application_special(char *s,
             }
             else
 #endif
-#if defined(HAVE_OZONE) || defined(HAVE_MATERIALUI)
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_MATERIALUI)
 		    if (    string_is_equal(menu_ident, "ozone")
+               || string_is_equal(menu_ident, "eapine_desktop")
                || string_is_equal(menu_ident, "glui"))
             {
                char s5[PATH_MAX_LENGTH];
@@ -328,7 +330,7 @@ void fill_pathname_application_special(char *s,
 
          break;
       case APPLICATION_SPECIAL_DIRECTORY_ASSETS_OZONE_ICONS:
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
          {
             char s5[PATH_MAX_LENGTH];
             char s6[PATH_MAX_LENGTH];

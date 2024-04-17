@@ -2407,6 +2407,10 @@ MSG_HASH(
    "ozone"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_MENU_DRIVER_EAPINE_DESKTOP,
+   "eapine_desktop"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_MENU_DRIVER_MATERIALUI,
    "glui"
    )

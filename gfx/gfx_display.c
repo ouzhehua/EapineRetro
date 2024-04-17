@@ -316,7 +316,7 @@ float gfx_display_get_dpi_scale(
        || (p_disp->menu_driver_id != last_menu_driver_id))
    {
       adjusted_scale            = scale * menu_scale_factor;
-#ifdef HAVE_OZONE
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
       if (p_disp->menu_driver_id == MENU_DRIVER_ID_OZONE)
       {
          /* Ozone has a capped scale factor */

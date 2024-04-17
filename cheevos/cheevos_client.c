@@ -698,7 +698,8 @@ void rcheevos_client_download_achievement_badges(rc_client_t* client)
 
    /* badges are only needed for xmb and ozone menus */
    if (!string_is_equal(settings->arrays.menu_driver, "xmb") &&
-      !string_is_equal(settings->arrays.menu_driver, "ozone"))
+       !string_is_equal(settings->arrays.menu_driver, "ozone") &&
+       !string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
       return;
 #endif /* !defined(HAVE_GFX_WIDGETS) */
 
@@ -2118,7 +2119,8 @@ void rcheevos_client_fetch_badges(rcheevos_client_callback callback, void* userd
 
    /* badges are only needed for xmb and ozone menus */
    if (!string_is_equal(settings->arrays.menu_driver, "xmb") &&
-         !string_is_equal(settings->arrays.menu_driver, "ozone"))
+       !string_is_equal(settings->arrays.menu_driver, "ozone") &&
+       !string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
       return;
 #endif /* !defined(HAVE_GFX_WIDGETS) */
 

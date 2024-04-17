@@ -4737,6 +4737,86 @@ static void setting_get_string_representation_uint_ozone_menu_color_theme(
 }
 #endif
 
+#ifdef HAVE_EAPINE_DESKTOP
+static void setting_get_string_representation_uint_eapine_menu_color_theme(
+   rarch_setting_t* setting,
+   char* s, size_t len)
+{
+   if (!setting)
+      return;
+
+   switch (*setting->value.target.unsigned_integer)
+   {
+   case OZONE_COLOR_THEME_BASIC_BLACK:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_BASIC_BLACK), len);
+      break;
+   case OZONE_COLOR_THEME_NORD:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_NORD), len);
+      break;
+   case OZONE_COLOR_THEME_GRUVBOX_DARK:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRUVBOX_DARK), len);
+      break;
+   case OZONE_COLOR_THEME_BOYSENBERRY:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_BOYSENBERRY), len);
+      break;
+   case OZONE_COLOR_THEME_HACKING_THE_KERNEL:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_HACKING_THE_KERNEL), len);
+      break;
+   case OZONE_COLOR_THEME_TWILIGHT_ZONE:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_TWILIGHT_ZONE), len);
+      break;
+   case OZONE_COLOR_THEME_DRACULA:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_DRACULA), len);
+      break;
+   case OZONE_COLOR_THEME_SOLARIZED_DARK:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SOLARIZED_DARK), len);
+      break;
+   case OZONE_COLOR_THEME_SOLARIZED_LIGHT:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SOLARIZED_LIGHT), len);
+      break;
+   case OZONE_COLOR_THEME_GRAY_DARK:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRAY_DARK), len);
+      break;
+   case OZONE_COLOR_THEME_GRAY_LIGHT:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRAY_LIGHT), len);
+      break;
+   case OZONE_COLOR_THEME_PURPLE_RAIN:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_PURPLE_RAIN), len);
+      break;
+   case OZONE_COLOR_THEME_BASIC_WHITE:
+   default:
+      strlcpy(s,
+         msg_hash_to_str(
+            MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_BASIC_WHITE), len);
+      break;
+   }
+}
+#endif
+
 #if defined(HAVE_CG) || defined(HAVE_GLSL) || defined(HAVE_SLANG) || defined(HAVE_HLSL)
 #if defined(HAVE_XMB) && defined(HAVE_SHADERPIPELINE)
 static void setting_get_string_representation_uint_xmb_shader_pipeline(
@@ -7222,7 +7302,7 @@ static void setting_get_string_representation_uint_menu_screensaver_timeout(
    }
 }
 
-#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
 static void setting_get_string_representation_uint_menu_screensaver_animation(
       rarch_setting_t *setting,
       char *s, size_t len)
@@ -7260,7 +7340,7 @@ static void setting_get_string_representation_uint_menu_screensaver_animation(
 }
 #endif
 
-#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_RGUI)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_RGUI)
 static void setting_get_string_representation_uint_menu_remember_selection(
       rarch_setting_t *setting,
       char *s, size_t len)
@@ -9959,7 +10039,9 @@ static bool setting_append_list(
          }
 #endif
 
-         if (string_is_not_equal(settings->arrays.menu_driver, "xmb") && string_is_not_equal(settings->arrays.menu_driver, "ozone"))
+         if (string_is_not_equal(settings->arrays.menu_driver, "xmb") &&
+             string_is_not_equal(settings->arrays.menu_driver, "ozone") &&
+             string_is_not_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_ACTION(
                   list, list_info,
@@ -17591,7 +17673,8 @@ static bool setting_append_list(
          START_SUB_GROUP(list, list_info, "State", &group_info, &subgroup_info, parent_group);
 
          if (string_is_not_equal(settings->arrays.menu_driver, "rgui") &&
-             string_is_not_equal(settings->arrays.menu_driver, "ozone"))
+             string_is_not_equal(settings->arrays.menu_driver, "ozone") &&
+             string_is_not_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_PATH(
                   list, list_info,
@@ -17742,10 +17825,11 @@ static bool setting_append_list(
                &setting_get_string_representation_uint_menu_screensaver_timeout;
          menu_settings_list_current_add_range(list, list_info, 0, 1800, 10, true, true);
 
-#if (defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)) && !defined(_3DS)
+#if (defined(HAVE_MATERIALUI) || defined(HAVE_XMB) || defined(HAVE_OZONE)) || defined(HAVE_EAPINE_DESKTOP) && !defined(_3DS)
          if (string_is_equal(settings->arrays.menu_driver, "glui") ||
              string_is_equal(settings->arrays.menu_driver, "xmb")  ||
-             string_is_equal(settings->arrays.menu_driver, "ozone"))
+             string_is_equal(settings->arrays.menu_driver, "ozone")||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_UINT(
                   list, list_info,
@@ -17782,9 +17866,10 @@ static bool setting_append_list(
             menu_settings_list_current_add_range(list, list_info, 0.1, 10.0, 0.1, true, true);
          }
 #endif
-#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_RGUI)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_RGUI)
          if (string_is_equal(settings->arrays.menu_driver, "xmb") ||
              string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop") ||
              string_is_equal(settings->arrays.menu_driver, "rgui"))
          {
             CONFIG_UINT(
@@ -18297,7 +18382,9 @@ static bool setting_append_list(
                general_read_handler,
                SD_FLAG_NONE);
 
-         if (string_is_equal(settings->arrays.menu_driver, "xmb") || string_is_equal(settings->arrays.menu_driver, "ozone"))
+         if (string_is_equal(settings->arrays.menu_driver, "xmb") ||
+             string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_BOOL(
                   list, list_info,
@@ -18359,7 +18446,8 @@ static bool setting_append_list(
          /* > MaterialUI, XMB and Ozone all support menu scaling */
          if (string_is_equal(settings->arrays.menu_driver, "glui") ||
              string_is_equal(settings->arrays.menu_driver, "xmb") ||
-             string_is_equal(settings->arrays.menu_driver, "ozone"))
+             string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_FLOAT(
                   list, list_info,
@@ -18628,7 +18716,10 @@ static bool setting_append_list(
             (*list)[list_info->index - 1].ui_type   = ST_UI_TYPE_UINT_COMBOBOX;
        }
 #endif
-         if (string_is_equal(settings->arrays.menu_driver, "ozone"))
+
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
+         if (string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_BOOL(
                   list, list_info,
@@ -18648,6 +18739,7 @@ static bool setting_append_list(
             (*list)[list_info->index - 1].action_left   = &setting_bool_action_left_with_refresh;
             (*list)[list_info->index - 1].action_right  = &setting_bool_action_right_with_refresh;
          }
+#endif
 
             CONFIG_BOOL(
                   list, list_info,
@@ -18900,8 +18992,10 @@ static bool setting_append_list(
 #endif
 #endif
 
-#if defined(HAVE_XMB) || defined(HAVE_OZONE)
-         if (string_is_equal(settings->arrays.menu_driver, "xmb") || string_is_equal(settings->arrays.menu_driver, "ozone"))
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
+         if (string_is_equal(settings->arrays.menu_driver, "xmb") || 
+             string_is_equal(settings->arrays.menu_driver, "ozone") || 
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_BOOL(
                   list, list_info,
@@ -19033,9 +19127,10 @@ static bool setting_append_list(
                   SD_FLAG_NONE);
 #endif
 
-#if defined(HAVE_XMB) || defined(HAVE_OZONE)
+#if defined(HAVE_XMB) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
          if (string_is_equal(settings->arrays.menu_driver, "xmb") ||
-             string_is_equal(settings->arrays.menu_driver, "ozone"))
+             string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_BOOL(
                   list, list_info,
@@ -19429,6 +19524,73 @@ static bool setting_append_list(
          }
 #endif
 
+#ifdef HAVE_EAPINE_DESKTOP
+         if (string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
+         {
+            CONFIG_UINT(
+               list, list_info,
+               &settings->uints.menu_ozone_color_theme,
+               MENU_ENUM_LABEL_OZONE_MENU_COLOR_THEME,
+               MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
+               DEFAULT_OZONE_COLOR_THEME,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler);
+            (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint;
+            (*list)[list_info->index - 1].get_string_representation =
+               &setting_get_string_representation_uint_eapine_menu_color_theme;
+            menu_settings_list_current_add_range(list, list_info, 0, OZONE_COLOR_THEME_LAST - 1, 1, true, true);
+            (*list)[list_info->index - 1].ui_type = ST_UI_TYPE_UINT_COMBOBOX;
+
+            CONFIG_BOOL(
+               list, list_info,
+               &settings->bools.ozone_collapse_sidebar,
+               MENU_ENUM_LABEL_OZONE_COLLAPSE_SIDEBAR,
+               MENU_ENUM_LABEL_VALUE_OZONE_COLLAPSE_SIDEBAR,
+               DEFAULT_OZONE_COLLAPSE_SIDEBAR,
+               MENU_ENUM_LABEL_VALUE_OFF,
+               MENU_ENUM_LABEL_VALUE_ON,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler,
+               SD_FLAG_NONE);
+
+            CONFIG_BOOL(
+               list, list_info,
+               &settings->bools.ozone_scroll_content_metadata,
+               MENU_ENUM_LABEL_OZONE_SCROLL_CONTENT_METADATA,
+               MENU_ENUM_LABEL_VALUE_OZONE_SCROLL_CONTENT_METADATA,
+               DEFAULT_OZONE_SCROLL_CONTENT_METADATA,
+               MENU_ENUM_LABEL_VALUE_OFF,
+               MENU_ENUM_LABEL_VALUE_ON,
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler,
+               SD_FLAG_NONE);
+
+            CONFIG_FLOAT(
+               list, list_info,
+               &settings->floats.ozone_thumbnail_scale_factor,
+               MENU_ENUM_LABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
+               MENU_ENUM_LABEL_VALUE_OZONE_THUMBNAIL_SCALE_FACTOR,
+               DEFAULT_OZONE_THUMBNAIL_SCALE_FACTOR,
+               "%.2fx",
+               &group_info,
+               &subgroup_info,
+               parent_group,
+               general_write_handler,
+               general_read_handler);
+            (*list)[list_info->index - 1].action_ok = &setting_action_ok_uint;
+            menu_settings_list_current_add_range(list, list_info, 1.0, 2.0, 0.05, true, true);
+         }
+#endif
+
          CONFIG_BOOL(
                list, list_info,
                &settings->bools.menu_show_start_screen,
@@ -19479,6 +19641,7 @@ static bool setting_append_list(
 
          if (string_is_equal(settings->arrays.menu_driver, "xmb") ||
              string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop") ||
              string_is_equal(settings->arrays.menu_driver, "rgui") ||
              string_is_equal(settings->arrays.menu_driver, "glui"))
          {
@@ -19491,6 +19654,11 @@ static bool setting_append_list(
                left_thumbnails_label_value = MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_RGUI;
             }
             else if (string_is_equal(settings->arrays.menu_driver, "ozone"))
+            {
+               thumbnails_label_value      = MENU_ENUM_LABEL_VALUE_THUMBNAILS;
+               left_thumbnails_label_value = MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE;
+            }
+            else if (string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
             {
                thumbnails_label_value      = MENU_ENUM_LABEL_VALUE_THUMBNAILS;
                left_thumbnails_label_value = MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE;
@@ -19576,6 +19744,7 @@ static bool setting_append_list(
 
          if (string_is_equal(settings->arrays.menu_driver, "xmb") ||
              string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop") ||
              string_is_equal(settings->arrays.menu_driver, "glui"))
          {
             CONFIG_UINT(
@@ -21357,7 +21526,8 @@ static bool setting_append_list(
          /* Playlist entry index display and content specific history icon
           * are currently supported only by Ozone & XMB */
          if (string_is_equal(settings->arrays.menu_driver, "xmb") ||
-             string_is_equal(settings->arrays.menu_driver, "ozone"))
+             string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
          {
             CONFIG_UINT(
                   list, list_info,
@@ -21488,8 +21658,9 @@ static bool setting_append_list(
                SD_FLAG_NONE
             );
 
-#if defined(HAVE_OZONE) || defined(HAVE_XMB)
+#if defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP) || defined(HAVE_XMB)
          if (string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop") ||
              string_is_equal(settings->arrays.menu_driver, "xmb"))
          {
             CONFIG_BOOL(
@@ -21591,7 +21762,9 @@ static bool setting_append_list(
                );
 
 #ifndef HAVE_GFX_WIDGETS
-         if (string_is_equal(settings->arrays.menu_driver, "xmb") || string_is_equal(settings->arrays.menu_driver, "ozone"))
+         if (string_is_equal(settings->arrays.menu_driver, "xmb") || 
+             string_is_equal(settings->arrays.menu_driver, "ozone") ||
+             string_is_equal(settings->arrays.menu_driver, "eapine_desktop"))
             CONFIG_BOOL(
                   list, list_info,
                   &settings->bools.cheevos_badges_enable,
