@@ -1256,19 +1256,32 @@ static void setting_get_string_representation_st_dir(rarch_setting_t *setting,
       char *s, size_t len)
 {
    if (setting)
+#if IOS
+   {
+      if (*setting->value.target.string)
+         fill_pathname_abbreviate_special(s, setting->value.target.string, len);
+      else
+         strlcpy(s, setting->dir.empty_path, len);
+   }
+#else
       strlcpy(s,
              *setting->value.target.string
             ? setting->value.target.string
             : setting->dir.empty_path,
             len);
+#endif
 }
 
 static void setting_get_string_representation_st_path(rarch_setting_t *setting,
       char *s, size_t len)
 {
    if (setting)
+#if IOS
+      fill_pathname_abbreviate_special(s, path_basename(setting->value.target.string), len);
+#else
       fill_pathname(s, path_basename(setting->value.target.string),
             "", len);
+#endif
 }
 
 static void setting_get_string_representation_st_string(rarch_setting_t *setting,
@@ -4184,9 +4197,9 @@ static void setting_get_string_representation_uint_xmb_icon_theme(
          strlcpy(s,
                msg_hash_to_str(MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_FLATUI), len);
          break;
-      case XMB_ICON_THEME_RETROACTIVE:
+      case XMB_ICON_THEME_FLATUX:
          strlcpy(s,
-               msg_hash_to_str(MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_RETROACTIVE), len);
+               msg_hash_to_str(MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_FLATUX), len);
          break;
       case XMB_ICON_THEME_RETROSYSTEM:
          strlcpy(s,
@@ -4195,10 +4208,6 @@ static void setting_get_string_representation_uint_xmb_icon_theme(
       case XMB_ICON_THEME_PIXEL:
          strlcpy(s,
                msg_hash_to_str(MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_PIXEL), len);
-         break;
-      case XMB_ICON_THEME_NEOACTIVE:
-         strlcpy(s,
-               msg_hash_to_str(MENU_ENUM_LABEL_VALUE_XMB_ICON_THEME_NEOACTIVE), len);
          break;
       case XMB_ICON_THEME_SYSTEMATIC:
          strlcpy(s,
@@ -22135,6 +22144,7 @@ static bool setting_append_list(
          START_SUB_GROUP(list, list_info, "State", &group_info, &subgroup_info, parent_group);
 #ifdef HAVE_NETWORKING
 
+#ifdef HAVE_UPDATE_CORES
 #if defined(ANDROID)
          /* Play Store builds do not fetch cores
           * from the buildbot */
@@ -22159,6 +22169,7 @@ static bool setting_append_list(
             (*list)[list_info->index - 1].ui_type       = ST_UI_TYPE_STRING_LINE_EDIT;
             (*list)[list_info->index - 1].action_start  = setting_generic_action_start_default;
          }
+#endif
 
          CONFIG_STRING(
                list, list_info,
@@ -23122,6 +23133,7 @@ static bool setting_append_list(
 #endif
 
 #ifdef HAVE_NETWORKING
+#if !IOS
          CONFIG_ACTION(
                list, list_info,
                MENU_ENUM_LABEL_ACCOUNTS_YOUTUBE,
@@ -23145,6 +23157,7 @@ static bool setting_append_list(
                &group_info,
                &subgroup_info,
                parent_group);
+#endif
 #endif
 
          END_SUB_GROUP(list, list_info, parent_group);
