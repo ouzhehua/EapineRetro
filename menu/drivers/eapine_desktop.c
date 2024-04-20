@@ -12519,46 +12519,46 @@ static int ozone_pointer_up(void *userdata,
 }
 
 menu_ctx_driver_t menu_ctx_eapine_desktop = {
-   NULL,                         /* set_texture */
-   ozone_messagebox,
-   ozone_render,
-   ozone_frame,
-   ozone_init,
-   ozone_free,
-   ozone_context_reset,
-   ozone_context_destroy,
-   ozone_populate_entries,
-   ozone_toggle,
-   ozone_navigation_clear,
-   NULL,
-   NULL,
-   ozone_navigation_set,
-   ozone_navigation_pointer_changed,
-   ozone_navigation_alphabet,
-   ozone_navigation_alphabet,
-   ozone_menu_init_list,
-   ozone_list_insert,
-   NULL,                         /* list_prepend */
-   ozone_list_free,
-   ozone_list_clear,
-   ozone_list_cache,
-   ozone_list_push,
-   ozone_list_get_selection,
-   ozone_list_get_size,
-   ozone_list_get_entry,
-   NULL,                         /* list_set_selection */
-   ozone_list_bind_init,
-   NULL,
-   "eapine_desktop",
-   ozone_environ_cb,
-   NULL,
-   ozone_update_thumbnail_image,
-   ozone_refresh_thumbnail_image,
-   ozone_set_thumbnail_content,
-   gfx_display_osk_ptr_at_pos,
-   ozone_update_savestate_thumbnail_path,
-   ozone_update_savestate_thumbnail_image,
-   NULL,                         /* pointer_down */
-   ozone_pointer_up,
-   ozone_menu_entry_action
+   NULL,                                     /* set_texture */
+   ozone_messagebox,                         /* render_messagebox */
+   ozone_render,                             /* render */
+   ozone_frame,                              /* frame */
+   ozone_init,                               /* menu_init */
+   ozone_free,                               /* free */
+   ozone_context_reset,                      /* context_reset */
+   ozone_context_destroy,                    /* context_destroy */
+   ozone_populate_entries,                   /* populate_entries */
+   ozone_toggle,                             /* toggle */
+   ozone_navigation_clear,                   /* navigation_clear */
+   NULL,                                     /* navigation_decrement */
+   NULL,                                     /* navigation_increment */
+   ozone_navigation_set,                     /* navigation_set */
+   ozone_navigation_pointer_changed,         /* navigation_set_last */
+   ozone_navigation_alphabet,                /* navigation_descend_alphabet */
+   ozone_navigation_alphabet,                /* navigation_ascend_alphabet */
+   ozone_menu_init_list,                     /* lists_init */
+   ozone_list_insert,                        /* list_insert */
+   NULL,                                     /* list_prepend */
+   ozone_list_free,                          /* list_delete */
+   ozone_list_clear,                         /* list_clear */
+   ozone_list_cache,                         /* list_cache */
+   ozone_list_push,                          /* list_push */
+   ozone_list_get_selection,                 /* list_get_selection */
+   ozone_list_get_size,                      /* list_get_size */
+   ozone_list_get_entry,                     /* list_get_entry */
+   NULL,                                     /* list_set_selection */
+   ozone_list_bind_init,                     /* menu_list_bind_init */
+   NULL,                                     /* load_image */
+   "eapine_desktop",                         /* name string */
+   ozone_environ_cb,                         /* environ */
+   NULL,                                     /* update_thumbnail_path */
+   ozone_update_thumbnail_image,             /* update_thumbnail_image */
+   ozone_refresh_thumbnail_image,            /* refresh_thumbnail_image */
+   ozone_set_thumbnail_content,              /* set_thumbnail_content */
+   gfx_display_osk_ptr_at_pos,               /* osk_ptr_at_pos */
+   ozone_update_savestate_thumbnail_path,    /* update_savestate_thumbnail_path */
+   ozone_update_savestate_thumbnail_image,   /* update_savestate_thumbnail_image */
+   NULL,                                     /* pointer_down */
+   ozone_pointer_up,                         /* pointer_up   */
+   ozone_menu_entry_action                   /* entry_action */
 };
