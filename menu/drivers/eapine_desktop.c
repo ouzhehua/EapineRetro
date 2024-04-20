@@ -8790,7 +8790,7 @@ static void *ozone_init(void **userdata, bool video_is_threaded)
    fill_pathname_join_special(
          ozone->assets_path,
          directory_assets,
-         "ozone",
+         "eapine_desktop",
          sizeof(ozone->assets_path));
 
    /* PNG path */
