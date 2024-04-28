@@ -1903,10 +1903,6 @@ MSG_HASH(
    "Introduce uno o varios fotogramas negros entre fotogramas para mejorar la claridad de los elementos en movimiento. Utiliza únicamente la opción designada para la frecuencia de actualización actual de tu monitor. No se debe utilizar con frecuencias de actualización que no sean múltiplos de 60 Hz, como 144 Hz, 165 Hz, etc. No combinar con un intervalo de intercambio de VSync superior a 1, con subfotogramas, con el retraso de fotogramas o con Sincronizar FPS al contenido. No pasa nada por d[...]"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_OFF,
-   "Desactivar"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_120,
    "1 - Para una frecuencia de 120 Hz"
    )
@@ -1991,10 +1987,6 @@ MSG_HASH(
    "Introduce uno o varios fotogramas adicionales entre fotogramas para cualquier efecto de shaders que esté diseñado para ejecutarse a una velocidad de actualización superior a la del contenido. Utiliza únicamente la opción designada para la frecuencia de actualización actual de tu monitor. No se debe utilizar con frecuencias de actualización que no sean múltiplos de 60 Hz, como 144 Hz, 165 Hz, etc. No combinar con un intervalo de intercambio de VSync superior a 1, con subfotogramas, con[...]"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_OFF,
-   "Desactivar"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_120,
    "2 - Para una frecuencia de 120 Hz"
    )
@@ -2064,11 +2056,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SCAN_SUBFRAMES,
-   "Simula de forma básica el escalonamiento de las líneas de barrido a lo largo de varios subfotogramas diviendo la pantalla en partes verticales y renderizando cada una de las mismas en función de los subfotogramas que existan."
+   "Simula de forma básica el escalonamiento de las líneas de barrido a lo largo de varios subfotogramas dividendo la pantalla en partes verticales y renderizando cada una de las mismas en función de los subfotogramas que existan."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SCAN_SUBFRAMES,
-   "Simula de forma básica el escalonamiento de las líneas de barrido a lo largo de varios subfotogramas diviendo la pantalla en partes verticales y renderizando cada una de las mismas en función de los subfotogramas que existan, de arriba a abajo."
+   "Simula de forma básica el escalonamiento de las líneas de barrido a lo largo de varios subfotogramas dividendo la pantalla en partes verticales y renderizando cada una de las mismas en función de los subfotogramas que existan, de arriba a abajo."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_GPU_SCREENSHOT,

@@ -1254,7 +1254,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOUD_SYNC_USERNAME,
-   "Вашае імя карыстальніка да вашага акаўнта воблачнага сховішча."
+   "Вашае імя карыстальніка да вашага ўліковага запісу воблачнага сховішча."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_PASSWORD,
@@ -1262,7 +1262,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOUD_SYNC_PASSWORD,
-   "Ваш пароль да вашага акаўнта воблачнага сховішча."
+   "Ваш пароль да вашага ўліковага запісу воблачнага сховішча."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOGGING_SETTINGS,
@@ -1446,7 +1446,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_USER_SETTINGS,
-   "Змяніць налады рахунку, імя карыстальніка ды мовы."
+   "Змяніць налады ўліковага запісу, імя карыстальніка ды мовы."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DIRECTORY_SETTINGS,
@@ -1895,10 +1895,6 @@ MSG_HASH(
    "Устаўка чорнага кадра"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_OFF,
-   "Выкл"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_120,
    "1 – для частаты абнаўлення экрану 120 Гц"
    )
@@ -1965,10 +1961,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES,
    "Падкадры шэйдэра"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_OFF,
-   "Выкл"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_120,
@@ -2065,6 +2057,10 @@ MSG_HASH(
    "Інтэрпаляцыя выявы"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_DINGUX_RS90_SOFTFILTER_TYPE,
+   "Вызначыць метад інтэрпаляцыі выявы пры выключанай функцыі 'Цэлалікавы маштаб'. 'Метад бліжэйшага суседа' мае найменшы ўплыў на прадукцыйнасць."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_RS90_SOFTFILTER_POINT,
    "Метад бліжэйшага суседа"
    )
@@ -2134,6 +2130,10 @@ MSG_HASH(
    "Карэкцыя імпульсу"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
+   "Прайдзіце праз гэтыя наладкі, каб наладзіць карэкцыю імпульсу для змены памеру выявы."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
    "Выкарыстоўваць меню высокай раздзяляльнасці"
    )
@@ -2167,8 +2167,16 @@ MSG_HASH(
    "Паварот выявы"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_ROTATION,
+   "Прымушае пэўны паварот выявы. Дадаецца да паваротаў, што задае ядро."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCREEN_ORIENTATION,
    "Арыентацыя экрана"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SCREEN_ORIENTATION,
+   "Прымушае пэўную арыентацыю экрана паводле аперацыйнай сістэмы."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_GPU_INDEX,
@@ -2183,8 +2191,16 @@ MSG_HASH(
    "Гарызантальны зрух экрана"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_WINDOW_OFFSET_X,
+   "Прымушае пэўнае зрушэнне выявы па гарызанталі. Ужываецца глабальна."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_OFFSET_Y,
    "Вертыкальны зрух экрана"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_WINDOW_OFFSET_Y,
+   "Прымушае пэўнае зрушэнне выявы па вертыкалі. Ужываецца глабальна."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE,
@@ -2240,6 +2256,10 @@ MSG_HASH(
    "Вертыкальная частата абнаўлення"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_DINGUX_REFRESH_RATE,
+   "Задаць вертыкальную частату абнаўлення экрана. '50 Гц' дазволіць плаўную выяву пры запуску змесціва PAL."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_REFRESH_RATE_60HZ,
    "60 Гц"
    )
@@ -2290,6 +2310,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FORCE_RESOLUTION,
    "Прымусовая раздзяляльнасць на UWP"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_FORCE_RESOLUTION,
+   "Прымусовая раздзяляльнасць на памер усяго экрана; пры зададзеным 0 будзе ўжыта фіксаванае значэнне 3840 x 2160."
    )
 
 /* Settings > Video > Windowed Mode */
@@ -2464,6 +2488,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VSYNC,
    "Вертыкальная сінхранізацыя (VSync)"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_VSYNC,
+   "Сінхранізаваць вывад відэа графічнай карты з частатой абнаўлення экрана. Рэкамендуецца."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SWAP_INTERVAL,
@@ -3157,6 +3185,30 @@ MSG_HASH(
 
 /* Settings > Input > Menu Controls */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_UNIFIED_MENU_CONTROLS,
+   "Уніфікаванае кіраванне меню"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_UNIFIED_MENU_CONTROLS,
+   "Выкарыстоўваць аднолькавае кіраванне як для меню, так і для гульняў. Ужываецца да клавіятуры."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_DISABLE_INFO_BUTTON,
+   "Адключэнне кнопкі даведкі"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_DISABLE_INFO_BUTTON,
+   "Калі ўключана, націсканні кнопкі даведкі будуць ігнаравацца."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_DISABLE_SEARCH_BUTTON,
+   "Адключэнне кнопкі пошуку"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_DISABLE_SEARCH_BUTTON,
+   "Калі ўключана, націсканні кнопкі пошуку будуць ігнаравацца."
+   )
 
 /* Settings > Input > Hotkeys */
 
@@ -4125,7 +4177,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_TIMEDATE_DATE_SEPARATOR,
-   "Задаць сімвал для ўжывання ў якасці раздзяляльніка паміж складнікамі год/месяц/дзень, калі бягучая дата паказваецца ў меню."
+   "Вызначыць сімвал для ўжывання ў якасці раздзяляльніка паміж складнікамі год/месяц/дзень, калі бягучая дата паказваецца ў меню."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BATTERY_LEVEL_ENABLE,
@@ -4686,7 +4738,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_ACCOUNT,
-   "Паведамленне пра ўваход"
+   "Паведамленні пра ўваход"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VERBOSE_ENABLE,

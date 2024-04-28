@@ -6537,7 +6537,7 @@ static void setting_get_string_representation_black_frame_insertion(rarch_settin
    switch (*setting->value.target.unsigned_integer)
    {
       case 0:
-         strlcpy(s, msg_hash_to_str(MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_OFF), len);
+         strlcpy(s, msg_hash_to_str(MENU_ENUM_LABEL_VALUE_OFF), len);
          break;
       case 1:
          strlcpy(s, msg_hash_to_str(MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_120), len);
@@ -6596,7 +6596,7 @@ static void setting_get_string_representation_shader_subframes(rarch_setting_t *
    switch (*setting->value.target.unsigned_integer)
    {
       case 1:
-         strlcpy(s, msg_hash_to_str(MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_OFF), len);
+         strlcpy(s, msg_hash_to_str(MENU_ENUM_LABEL_VALUE_OFF), len);
          break;
       case 2:
          strlcpy(s, msg_hash_to_str(MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_120), len);
@@ -8720,9 +8720,15 @@ static void general_write_handler(rarch_setting_t *setting)
       case MENU_ENUM_LABEL_AUDIO_ENABLE_MENU:
 #ifdef HAVE_AUDIOMIXER
          if (settings->bools.audio_enable_menu)
+         {
+            command_event(CMD_EVENT_AUDIO_START, NULL);
             audio_driver_load_system_sounds();
+         }
          else
+         {
             audio_driver_mixer_stop_stream(AUDIO_MIXER_SYSTEM_SLOT_BGM);
+            command_event(CMD_EVENT_AUDIO_STOP, NULL);
+         }
 #endif
          break;
       case MENU_ENUM_LABEL_MENU_SOUND_BGM:
@@ -18934,7 +18940,7 @@ static bool setting_append_list(
                   general_write_handler,
                   general_read_handler,
                   SD_FLAG_NONE);
-#else
+#elif !defined(IOS)
             CONFIG_BOOL(
                   list, list_info,
                   &settings->bools.menu_show_quit_retroarch,
@@ -22203,6 +22209,7 @@ static bool setting_append_list(
                SD_FLAG_NONE
                );
 
+#ifdef HAVE_UPDATE_CORES
          CONFIG_BOOL(
                list, list_info,
                &settings->bools.network_buildbot_show_experimental_cores,
@@ -22257,6 +22264,7 @@ static bool setting_append_list(
                (*list)[list_info->index - 1].offset_by = 1;
                menu_settings_list_current_add_range(list, list_info, (*list)[list_info->index - 1].offset_by, 500, 1, true, true);
          }
+#endif
 #endif
          END_SUB_GROUP(list, list_info, parent_group);
          END_GROUP(list, list_info, parent_group);

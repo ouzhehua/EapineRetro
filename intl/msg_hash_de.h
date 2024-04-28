@@ -1835,10 +1835,6 @@ MSG_HASH(
    "Fügt Schwarzbild(er) zwischen Frames für verbesserte Bewegungsschärfe ein. Nur die Option benutzen, die für die aktuelle Aktualisierungsrate bestimmt ist. Nicht für die Verwendung bei Aktualisierungsraten mit nicht multiplen 60 Hz wie 144 Hz, 165Hz, usw. Nicht kombinieren mit Swap-Intervall > 1, Unterbilder, Bildverzögerung oder mit exakter Inhaltssignalfrequenz synchronisieren. System-VRR eingeschaltet lassen ist ok, nur nicht diese Einstellung. Wenn -irgendein- temporäres Bild-Nachleuch[...]"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_OFF,
-   "Aus"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_120,
    "1 - Für eine Bildwiederholfrequenz von 120 Hz"
    )
@@ -1923,10 +1919,6 @@ MSG_HASH(
    "Fügt zusätzlich Shader-Bild(er) zwischen Frames für alle möglichen Shader-Effekte ein, die darauf ausgelegt sind, schneller als die Inhaltsrate zu laufen. Nur die Option benutzen, die für die aktuelle Aktualisierungsrate bestimmt ist. Nicht für die Verwendung bei Aktualisierungsraten mit nicht multiplen 60 Hz wie 144 Hz, 165Hz, usw. Nicht kombinieren mit Swap-Intervall > 1, Schwarzbilder, Bildverzögerung oder mit exakter Inhaltssignalfrequenz synchronisieren. System-VRR eingeschaltet lass[...]"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_OFF,
-   "Aus"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_120,
    "2 - Für eine Bildwiederholfrequenz von 120 Hz"
    )
@@ -1993,14 +1985,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SCAN_SUBFRAMES,
    "Rollende Scanline-Simulation"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_SCAN_SUBFRAMES,
-   "Simuliert eine einfache rollende Scanline über mehrere Unterbilder, indem der Bildschirm vertikal aufgeteilt wird und jeder Teil des Bildschirms entsprechend der Anzahl der Unterbilder dargestellt wird"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_HELP_VIDEO_SCAN_SUBFRAMES,
-   "Simuliert eine einfache rollende Scanline über mehrere Unterbilder, indem der Bildschirm vertikal aufgeteilt wird und jeder Teil des Bildschirms entsprechend der Anzahl der Unterbilder vom oberen Bildschirmrand nach unten gerendert wird"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_GPU_SCREENSHOT,
@@ -6812,7 +6796,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AI_SERVICE_MODE,
-   "Übersetzung als Text Overlay (Bildmodus), als Text To Speech (Sprachmodus) abspielen oder einen System Erzähler wie NVDA (Erzählermodus) verwenden."
+   "Übersetzung als Text-Overlay (Bildmodus), als Text-To-Speech (Sprachmodus) abspielen oder einen System-Erzähler wie NVDA (Erzählermodus) verwenden."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_URL,
