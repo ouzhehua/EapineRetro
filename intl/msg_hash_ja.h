@@ -2059,6 +2059,10 @@ MSG_HASH(
    "GPU スクリーンショット"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SCAN_SUBFRAMES,
+   "ローリングスキャンラインシミュレーション"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_GPU_SCREENSHOT,
    "利用可能な場合、スクリーンショットは GPU シェーディングされた画像をキャプチャします。"
    )
@@ -6558,32 +6562,14 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_ADD_TO_FAVORITES,
    "[お気に入りに追加] オプションを表示します。"
    )
-
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_ADD_TO_PLAYLIST,
-   "プレイリストに追加"
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_ADD_TO_PLAYLIST,
+   "[プレイリストに追加] を表示"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_ADD_TO_PLAYLIST,
-   "プレイリストにコンテンツを追加します。"
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_ADD_TO_PLAYLIST,
+   "[プレイリストに追加] オプションを表示します。"
    )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CREATE_NEW_PLAYLIST,
-   "新しいプレイリストを作成"
-   )
-MSG_HASH(
-   MSG_ADDED_TO_PLAYLIST,
-   "プレイリストに追加しました"
-   )
-MSG_HASH(
-   MSG_ADD_TO_PLAYLIST_FAILED,
-   "プレイリストに追加できませんでした: プレイリストがいっぱいです"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_CREATE_NEW_PLAYLIST,
-   "新しいプレイリストを作成し、現在のエントリーを追加します。"
-   )
-
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_SET_CORE_ASSOCIATION,
    "[コアの関連付けを設定] を表示"
@@ -8737,6 +8723,22 @@ MSG_HASH(
    "[お気に入り] にコンテンツを追加します。"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ADD_TO_PLAYLIST,
+   "プレイリストに追加"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ADD_TO_PLAYLIST,
+   "プレイリストにコンテンツを追加します。"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CREATE_NEW_PLAYLIST,
+   "新しいプレイリストを作成"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CREATE_NEW_PLAYLIST,
+   "新しいプレイリストを作成し、現在のエントリーを追加します。"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SET_CORE_ASSOCIATION,
    "コアの関連付けを設定"
    )
@@ -9259,11 +9261,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_APPLY_AFTER_LOAD,
-   "コンテンツのロード時にチートを自動適用"
+   "ゲームの起動時にチートを自動適用"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEAT_APPLY_AFTER_LOAD,
-   "ゲームをロードしたときにチートを自動で適用します。"
+   "ゲームを起動した時にチートを自動で適用します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_APPLY_AFTER_TOGGLE,
@@ -9271,7 +9273,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEAT_APPLY_AFTER_TOGGLE,
-   "切り替えの直後にチートを適用します。"
+   "切り替えた時、ただちにチートを適用します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_APPLY_CHANGES,
@@ -9279,7 +9281,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CHEAT_APPLY_CHANGES,
-   "チートの変更は直ちに反映されます。"
+   "チートの変更を適用します。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT,
@@ -13258,6 +13260,14 @@ MSG_HASH(
    "お気に入りの追加に失敗しました: プレイリストがいっぱいです"
    )
 MSG_HASH(
+   MSG_ADDED_TO_PLAYLIST,
+   "プレイリストに追加しました"
+   )
+MSG_HASH(
+   MSG_ADD_TO_PLAYLIST_FAILED,
+   "プレイリストに追加できませんでした: プレイリストがいっぱいです"
+   )
+MSG_HASH(
    MSG_SET_CORE_ASSOCIATION,
    "コアを設定しました:"
    )
@@ -15017,7 +15027,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FRAME_REST,
-   "フレーム提示のあと、できるだけスリープさせること垂直同期の CPU 使用率の軽減を試みます。主にサードパーティのスキャンライン同期用に設計されています。"
+   "フレーム提示のあと、できるだけスリープさせることで垂直同期の CPU 使用率の軽減を試みます。主にサードパーティのスキャンライン同期用に設計されています。"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PAL60_ENABLE,

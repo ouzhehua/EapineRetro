@@ -9268,6 +9268,7 @@ unsigned menu_displaylist_build_list(
                {MENU_ENUM_LABEL_VIDEO_3DS_DISPLAY_MODE,                                PARSE_ONLY_UINT,   true},
                {MENU_ENUM_LABEL_MENU_BOTTOM_SETTINGS,                                  PARSE_ACTION,      true},
 #endif
+               {MENU_ENUM_LABEL_USER_LANGUAGE,                                         PARSE_ONLY_UINT,   true},
                {MENU_ENUM_LABEL_MENU_DRIVER,                                           PARSE_ONLY_STRING_OPTIONS, true},
             };
 
@@ -10845,7 +10846,6 @@ unsigned menu_displaylist_build_list(
                {MENU_ENUM_LABEL_PRIVACY_SETTINGS,  PARSE_ACTION},
                {MENU_ENUM_LABEL_ACCOUNTS_LIST,     PARSE_ACTION},
                {MENU_ENUM_LABEL_NETPLAY_NICKNAME,  PARSE_ONLY_STRING},
-               {MENU_ENUM_LABEL_USER_LANGUAGE,     PARSE_ONLY_UINT},
             };
 
             for (i = 0; i < ARRAY_SIZE(build_list); i++)

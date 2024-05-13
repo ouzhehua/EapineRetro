@@ -6550,32 +6550,14 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_ADD_TO_FAVORITES,
    "A \"Kedvencekhez ad\" lehetőség jelenjen meg."
    )
-
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_ADD_TO_PLAYLIST,
-   "Hozzáadás játéklistához"
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_ADD_TO_PLAYLIST,
+   "\"Hozzáadás játéklistához\" látható"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_ADD_TO_PLAYLIST,
-   "A tartalom hozzáadása játéklistához."
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_ADD_TO_PLAYLIST,
+   "A \"Hozzáadás játéklistához\" lehetőség jelenjen meg."
    )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_CREATE_NEW_PLAYLIST,
-   "Új játéklista létrehozása"
-   )
-MSG_HASH(
-   MSG_ADDED_TO_PLAYLIST,
-   "Hozzáadva a játéklistához"
-   )
-MSG_HASH(
-   MSG_ADD_TO_PLAYLIST_FAILED,
-   "Nem sikerült a játéklistához adni: a játéklista megtelt"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_CREATE_NEW_PLAYLIST,
-   "Új játéklista létrehozása és az aktuális elem hozzáadása."
-   )
-
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_SET_CORE_ASSOCIATION,
    "\"Társítás maghoz\" látható"
@@ -8739,6 +8721,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ADD_TO_FAVORITES_PLAYLIST,
    "Hozzáadás a kedvencekhez."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ADD_TO_PLAYLIST,
+   "Hozzáadás játéklistához"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ADD_TO_PLAYLIST,
+   "A tartalom hozzáadása játéklistához."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CREATE_NEW_PLAYLIST,
+   "Új játéklista létrehozása"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CREATE_NEW_PLAYLIST,
+   "Új játéklista létrehozása és az aktuális elem hozzáadása."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SET_CORE_ASSOCIATION,
@@ -13076,6 +13074,14 @@ MSG_HASH(
 MSG_HASH(
    MSG_ADD_TO_FAVORITES_FAILED,
    "Nem sikerült a kedvencekhez adni: a játéklista megtelt"
+   )
+MSG_HASH(
+   MSG_ADDED_TO_PLAYLIST,
+   "Hozzáadva a játéklistához"
+   )
+MSG_HASH(
+   MSG_ADD_TO_PLAYLIST_FAILED,
+   "Nem sikerült a játéklistához adni: a játéklista megtelt"
    )
 MSG_HASH(
    MSG_SET_CORE_ASSOCIATION,
