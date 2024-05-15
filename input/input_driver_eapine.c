@@ -4,7 +4,8 @@
 const char* eapine_message_to_string(uint16_t e_type)
 {
    switch (e_type) {
-   case MSG_JoypadStates: return "MSG_JoypadStates";
+   case SearchHost: return "SearchHost";
+   case JoypadStates: return "JoypadStates";
    default: return "UNKNOWN";
    }
 }
@@ -41,11 +42,18 @@ void eapine_message_parse(input_driver_state_t* input_st, unsigned user)
 
       switch (*key)
       {
-      case MSG_JoypadStates:
+      case SearchHost:
       {
-         MSG_JoypadStates_handle(&buffer[offset], &input_st->remote_st_ptr, user);
+         CS_SearchHost_handle(input_st->remote->net_fd[user], (struct sockaddr*)&addr, addr_size);
          break;
       }
+      case JoypadStates:
+      {
+         CS_JoypadStates_handle(&buffer[offset], &input_st->remote_st_ptr, user);
+         break;
+      }
+      default:
+         break;
       }
    }
 }
@@ -64,7 +72,23 @@ void eapine_check_input_valid(input_remote_state_t* input_state, unsigned user)
    }
 }
 
-void MSG_JoypadStates_handle(eapine_joypad_states_t* msg, input_remote_state_t* input_state, unsigned user)
+void CS_SearchHost_handle(SOCKET socket, struct sockaddr* addr, socklen_t addr_size)
+{
+   struct sockaddr_in* addr_in = addr;
+   RARCH_LOG("[Eapine] CS_SearchHost_handle %s %d.\n", inet_ntoa(addr_in->sin_addr), addr_in->sin_port);
+
+   struct eapine_joypad_slot_states msg;
+   msg.key = SearchHost;
+   
+   msg.platform = 1;
+   msg.length = 4;
+   msg.state = 2;
+   
+   sendto(socket, (char*)&msg, sizeof(msg), 0, addr, addr_size);
+}
+
+
+void CS_JoypadStates_handle(eapine_joypad_states_t* msg, input_remote_state_t* input_state, unsigned user)
 {
    input_state->buttons[user] = msg->joypad_states;
    eapine_input_timer_ptr.joypads[user] = cpu_features_get_time_usec();
