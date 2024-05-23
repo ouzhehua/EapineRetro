@@ -20,6 +20,7 @@
 #include "cocoa_common.h"
 #include "apple_platform.h"
 #include "../ui_cocoa.h"
+#include <compat/apple_compat.h>
 
 #ifdef HAVE_COCOATOUCH
 #import "../../../pkg/apple/WebServer/GCDWebUploader/GCDWebUploader.h"
@@ -40,6 +41,8 @@
 #include "../../../configuration.h"
 #include "../../../content.h"
 #include "../../../core_info.h"
+#include "../../../defaults.h"
+#include "../../../file_path_special.h"
 #include "../../../menu/menu_cbs.h"
 #include "../../../paths.h"
 #include "../../../retroarch.h"
@@ -48,6 +51,10 @@
 
 #include "../../input/drivers/cocoa_input.h"
 #include "../../input/drivers_keyboard/keyboard_event_apple.h"
+
+#ifdef HAVE_MENU
+#include "../../menu/menu_driver.h"
+#endif
 
 #if defined(HAVE_COCOA_METAL) || defined(HAVE_COCOATOUCH)
 id<ApplePlatform> apple_platform;
