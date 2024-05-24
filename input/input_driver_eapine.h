@@ -8,6 +8,8 @@ enum eapine_message
 {
    SearchHost = 1,         //搜索主机 CS SC
    JoypadStates = 2,       //同步虚拟手柄Joypad的状态 CS
+   DownloadGameRom = 3,    //下载游戏Rom
+   UploadGameData = 4,     //上传游戏数据 CS
 };
 
 /// <summary>
@@ -59,11 +61,25 @@ void eapine_message_parse(input_driver_state_t* input_st, unsigned user);
 /// </summary>
 void eapine_check_input_valid(input_remote_state_t* input_state, unsigned user);
 
-void CS_SearchHost_handle(SOCKET socket, struct sockaddr* addr, socklen_t addr_size);
+/// <summary>
+/// 处理 CS_SearchHost
+/// </summary>
+void CS_SearchHost_handle(int socket, struct sockaddr* addr, socklen_t addr_size);
 
 /// <summary>
 /// 处理 CS_JoypadStates
 /// </summary>
 void CS_JoypadStates_handle(eapine_joypad_states_t* msg, input_remote_state_t* input_state, unsigned user);
+
+/// <summary>
+/// 处理 CS_DownloadGameRom
+/// </summary>
+void CS_DownloadGameRom_handle(char* buffer);
+void cb_game_rom_download(retro_task_t* task, void* task_data, void* user_data, const char* err);
+
+/// <summary>
+/// 处理 CS_UploadGameData
+/// </summary>
+void CS_UploadGameData_handle(char* buffer);
 
 #endif /* __EAPINE_DRIVER__H */
