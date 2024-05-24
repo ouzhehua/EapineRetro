@@ -70,7 +70,7 @@
 #include "switch_performance_profiles.h"
 #endif
 
-#if IOS
+#if __APPLE__
 #include "ui/drivers/cocoa/apple_platform.h"
 #endif
 
@@ -2885,9 +2885,9 @@ void config_set_defaults(void *data)
    load_timezone(settings->arrays.timezone);
 #endif
 
-#if IOS
+#if __APPLE__
    configuration_set_bool(settings,
-         settings->bools.accessibility_enable, UIAccessibilityIsVoiceOverRunning());
+         settings->bools.accessibility_enable, RAIsVoiceOverRunning());
 #endif
 
 #ifdef HAVE_MENU
