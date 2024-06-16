@@ -5949,9 +5949,9 @@ static int action_ok_add_entry_to_playlist(const char *path,
 
 static void action_input_add_entry_to_new_playlist(void *userdata, const char *line)
 {
-   settings_t *settings             = config_get_ptr();
-   size_t path_length               = 0;
    char path[PATH_MAX_LENGTH];
+   settings_t *settings       = config_get_ptr();
+   size_t _len                = 0;
 
    menu_input_dialog_end();
 
@@ -5959,9 +5959,8 @@ static void action_input_add_entry_to_new_playlist(void *userdata, const char *l
       return;
 
    /* Create path for new file */
-   path_length = fill_pathname_join_special(path, settings->paths.directory_playlist, line, sizeof(path));
-   strlcat(path, ".lpl",  sizeof(path) - path_length);
-
+   _len = fill_pathname_join_special(path, settings->paths.directory_playlist, line, sizeof(path));
+   strlcpy(path + _len, ".lpl",  sizeof(path) - _len);
    action_ok_add_entry_to_playlist(NULL, path, 0, 0, 0);
 }
 
@@ -6182,74 +6181,37 @@ static int action_ok_rdb_entry_submenu(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
    char *tok, *save;
-   union string_list_elem_attr attr;
+   char new_str[PATH_MAX_LENGTH];
    char new_label[PATH_MAX_LENGTH];
-   char *elem0                     = NULL;
-   char *elem1                     = NULL;
-   char *elem2                     = NULL;
-   int ret                         = -1;
-   char *rdb                       = NULL;
-   int len                         = 0;
-   struct string_list str_list2    = {0};
+   size_t _len                     = 0;
    char *label_cpy                 = NULL;
 
    if (!label)
       return -1;
 
+   new_label[0]                    =  '\0';
    label_cpy                       = strdup(label);
 
-   new_label[0]                    =  '\0';
-
-   /* element 0 : label
-    * element 1 : value
-    * element 2 : database path
-    */
+   /* element 0: label */
    if ((tok = strtok_r(label_cpy, "|", &save)))
-      elem0 = strdup(tok);
+      fill_pathname_join_delim(new_label,
+            msg_hash_to_str(MENU_ENUM_LABEL_DEFERRED_CURSOR_MANAGER_LIST),
+            tok, '_', sizeof(new_label));
+   /* element 1: value */
    if ((tok = strtok_r(NULL, "|", &save)))
-      elem1 = strdup(tok);
+      _len += strlcpy(new_str + _len, tok, sizeof(new_str) - _len);
+   /* element 2: database path */
    if ((tok = strtok_r(NULL, "|", &save)))
-      elem2 = strdup(tok);
-   free(label_cpy);
-
-   string_list_initialize(&str_list2);
-
-   attr.i = 0;
-
-   len += strlen(elem1) + 1;
-   string_list_append(&str_list2, elem1, attr);
-   free(elem1);
-
-   len += strlen(elem2) + 1;
-   string_list_append(&str_list2, elem2, attr);
-   free(elem2);
-
-   if (!(rdb = (char*)calloc(len, sizeof(char))))
    {
-      if (elem0)
-         free(elem0);
-      goto end;
+      _len += strlcpy(new_str + _len, "|", sizeof(new_str) - _len);
+      _len += strlcpy(new_str + _len, tok, sizeof(new_str) - _len);
    }
-
-   string_list_join_concat(rdb, len, &str_list2, "|");
-
-   fill_pathname_join_delim(new_label,
-         msg_hash_to_str(MENU_ENUM_LABEL_DEFERRED_CURSOR_MANAGER_LIST),
-         elem0, '_', sizeof(new_label));
-   free(elem0);
-
-   ret = generic_action_ok_displaylist_push(
-         rdb, NULL,
+   free(label_cpy);
+   return generic_action_ok_displaylist_push(
+         new_str, NULL,
          new_label, type,
          idx, entry_idx,
          ACTION_OK_DL_RDB_ENTRY_SUBMENU);
-
-end:
-   if (rdb)
-      free(rdb);
-   string_list_deinitialize(&str_list2);
-
-   return ret;
 }
 
 STATIC_DEFAULT_ACTION_OK_FUNC(action_ok_browse_url_start, ACTION_OK_DL_BROWSE_URL_START)
@@ -6912,16 +6874,22 @@ static int generic_action_ok_dropdown_setting(const char *path, const char *labe
       case ST_STRING_OPTIONS:
          if (setting->get_string_representation)
          {
-            struct string_list tmp_str_list = { 0 };
-            string_list_initialize(&tmp_str_list);
-            string_split_noalloc(&tmp_str_list,
-               setting->values, "|");
+            char *tok, *save;
+            unsigned tok_idx         = 0;
+            char *setting_values_cpy = strdup(setting->values);
 
-            if (idx < tmp_str_list.size)
-               strlcpy(setting->value.target.string,
-                  tmp_str_list.elems[idx].data, setting->size);
+            for (tok = strtok_r(setting_values_cpy, "|", &save); tok != NULL;
+                 tok = strtok_r(NULL, "|", &save), tok_idx++)
+            {
+               if (idx == tok_idx)
+               {
+                  strlcpy(setting->value.target.string, tok,
+                        setting->size);
+                  break;
+               }
+            }
 
-            string_list_deinitialize(&tmp_str_list);
+            free(setting_values_cpy);
             break;
          }
          /* fallthrough */
