@@ -8108,7 +8108,7 @@ static enum menu_action ozone_parse_menu_entry_action(
 
             if (     !menu_navigation_wraparound_enable
                   && selection == ozone->system_tab_end + horizontal_list_size)
-               new_selection   = (int)selection;
+               new_selection   = selection;
 
             if (new_selection != (int)selection)
             {
@@ -10488,9 +10488,7 @@ static void ozone_draw_header(
    if (timedate_enable)
    {
       gfx_display_ctx_datetime_t datetime;
-      char timedate[255];
-
-      timedate[0]             = '\0';
+      char timedate[256];
 
       datetime.s              = timedate;
       datetime.time_mode      = settings->uints.menu_timedate_style;

@@ -643,7 +643,7 @@ bool menu_entries_list_search(const char *needle, size_t *idx)
 /* Display the date and time - time_mode will influence how
  * the time representation will look like.
  * */
-void menu_display_timedate(gfx_display_ctx_datetime_t *datetime)
+size_t menu_display_timedate(gfx_display_ctx_datetime_t *datetime)
 {
    struct menu_state *menu_st  = &menu_driver_state;
 
@@ -1011,7 +1011,7 @@ void menu_display_timedate(gfx_display_ctx_datetime_t *datetime)
 
    /* Copy cached datetime string to input
     * menu_display_ctx_datetime_t struct */
-   strlcpy(datetime->s, menu_st->datetime_cache, datetime->len);
+   return strlcpy(datetime->s, menu_st->datetime_cache, datetime->len);
 }
 
 /* Display current (battery) power state */
@@ -4610,11 +4610,10 @@ void menu_entries_get_core_title(char *s, size_t len)
 #if defined(_MSC_VER)
    _len += strlcpy(s + _len, msvc_vercode_to_str(_MSC_VER), len - _len);
 #endif
-
+   _len += strlcpy(s + _len, " - ",     len - _len);
+   _len += strlcpy(s + _len, core_name, len - _len);
    if (!string_is_empty(core_version))
-      snprintf(s + _len, len - _len, " - %s (%s)", core_name, core_version);
-   else
-      snprintf(s + _len, len - _len, " - %s", core_name);
+      snprintf(s + _len, len - _len, " (%s)", core_version);
 }
 
 static bool menu_driver_init_internal(
