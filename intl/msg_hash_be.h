@@ -1229,9 +1229,13 @@ MSG_HASH(
    "Дэструктыўная воблачная сінхранізацыя"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SYNC_CONFIGS,
+   "Sync: Configuration Files"
+   )      
+MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOUD_SYNC_DESTRUCTIVE,
    "Калі адключана, файлы будуць перасунутыя ў тэчку рэзервовай копіі перад іх перазапісам ці выдаленнем."
-   )
+   )      
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DRIVER,
    "Бэкенд воблачнай сінхранізацыі"
@@ -2475,6 +2479,8 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_Y,
    "Уласныя суадносіны бакоў (пазіцыя Y)"
    )
+#if defined(RARCH_MOBILE)
+#endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_WIDTH,
    "Уласныя суадносіны бакоў (шырыня)"
@@ -3743,6 +3749,14 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_SET_SUPPORTS_NO_CONTENT_ENABLE,
    "Запускаць ядро аўтаматычна"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_OPTION_CATEGORY_ENABLE,
+   "Катэгорыі опцый ядра"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_INFO_CACHE_ENABLE,
+   "Кэшаванне файлаў звестак ядраў"
+   )
 #ifndef HAVE_DYNAMIC
 #endif
 MSG_HASH(
@@ -3865,15 +3879,35 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SORT_SAVEFILES_ENABLE,
-   "Рассартоўваць захоўванні станаў па тэчкам назваў ядраў"
+   "Сартаванне захаванняў па тэчкам з назваў ядраў"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SORT_SAVEFILES_ENABLE,
+   "Рассартоўваць файлы захаванняў па тэчкам з назвай выкарыстаных ядраў."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SORT_SAVESTATES_ENABLE,
-   "Рассартоўваць захоўванні станаў па тэчкам назваў ядраў"
+   "Сартаванне захаванняў станаў па тэчкам з назваў ядраў"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SORT_SAVESTATES_ENABLE,
+   "Рассартоўваць захаванні станаў па тэчкам з назвай выкарыстаных ядраў."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SORT_SAVEFILES_BY_CONTENT_ENABLE,
+   "Сартаванне захаванняў па тэчкам каталога змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SORT_SAVEFILES_BY_CONTENT_ENABLE,
+   "Рассартоўваць файлы захаванняў па тэчкам з назвай каталогаў, дзе размешчана змесціва."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SORT_SAVESTATES_BY_CONTENT_ENABLE,
-   "Рассартоўваць захоўванні станаў па тэчкам каталога змесціва"
+   "Сартаванне захаванняў станаў па тэчкам каталога змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SORT_SAVESTATES_BY_CONTENT_ENABLE,
+   "Рассартоўваць захаванні станаў па тэчкам з назвай каталогаў, дзе размешчана змесціва."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_INDEX,
