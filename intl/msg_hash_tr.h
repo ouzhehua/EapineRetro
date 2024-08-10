@@ -2545,7 +2545,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_X,
-   "Görünüm penceresinin X ekseni konumunu tanımlamak için kullanılan özel görünüm alanı ofseti.\n'Tam sayı Ölçeği' etkinse bunlar yok sayılır."
+   "Görünüm alanının X ekseni konumunu tanımlamak için kullanılan özel görünüm alanı dengesi."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_Y,
@@ -2553,7 +2553,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_Y,
-   "Görünüm penceresinin Y ekseni konumunu tanımlamak için kullanılan özel görünüm alanı ofseti.\n'Tam sayı Ölçeği' etkinse bunlar yok sayılır."
+   "Görünüm alanının Y ekseni konumunu tanımlamak için kullanılan özel görünüm alanı dengesi."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VIDEO_VIEWPORT_BIAS_X,
@@ -6864,6 +6864,14 @@ MSG_HASH(
    "'Kullanıcıyı' Göster"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ICON_THUMBNAILS,
+   "Oynatma Listesi Simgeleri"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ICON_THUMBNAILS,
+   "Görüntülenecek Oynatma Listesi simgesinin küçük resminin türü."
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_SETTINGS_SHOW_USER,
    "'Kullanıcı' ayarlarını gösterin."
    )
@@ -7853,7 +7861,15 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_PLAYLIST_USE_FILENAME,
    "Etkinleştirildiğinde, küçük resimleri giriş etiketi yerine dosya adına göre bulur."
    )
-   MSG_HASH(
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_ALLOW_NON_PNG,
+   "Küçük Resimler için Desteklenen Tüm Resim Türlerine İzin Ver"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_PLAYLIST_ALLOW_NON_PNG,
+   "Etkinleştirildiğinde, RetroArch tarafından desteklenen tüm görüntü türlerine (jpeg gibi) yerel küçük resimler eklenebilir. Küçük bir performans kaybı olabilir."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MANAGE,
    "Yönet"
    )
@@ -10544,6 +10560,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAIL_MODE_TITLE_SCREENS,
    "Ekran Başlığı"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_THUMBNAIL_MODE_LOGOS,
+   "İçerik Logosu"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCROLL_FAST,
@@ -14364,6 +14384,14 @@ MSG_HASH(
 MSG_HASH(
    MSG_LEADERBOARD_SUBMISSION,
    "%s için %s gönderildi" /* Submitted [value] for [leaderboard name] */
+   )
+MSG_HASH(
+   MSG_LEADERBOARD_RANK,
+   "Derece: %d" /* Rank: [leaderboard rank] */
+   )
+MSG_HASH(
+   MSG_LEADERBOARD_BEST,
+   "En iyi %s" /* Best: [value] */
    )
 MSG_HASH(
    MSG_CHANGE_THUMBNAIL_TYPE,

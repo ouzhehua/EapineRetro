@@ -1353,6 +1353,18 @@ const char *config_get_default_led(void)
 }
 
 /**
+ * config_get_default_cloudsync:
+ *
+ * Gets default cloud sync driver.
+ *
+ * Returns: Default cloud sync driver.
+ **/
+const char *config_get_default_cloudsync(void)
+{
+   return "null";
+}
+
+/**
  * config_get_default_location:
  *
  * Gets default location driver.
@@ -2148,6 +2160,7 @@ static struct config_bool_setting *populate_settings_bool(
    SETTING_BOOL("playlist_fuzzy_archive_match",  &settings->bools.playlist_fuzzy_archive_match, true, DEFAULT_PLAYLIST_FUZZY_ARCHIVE_MATCH, false);
    SETTING_BOOL("playlist_portable_paths",       &settings->bools.playlist_portable_paths, true, DEFAULT_PLAYLIST_PORTABLE_PATHS, false);
    SETTING_BOOL("playlist_use_filename",         &settings->bools.playlist_use_filename, true, DEFAULT_PLAYLIST_USE_FILENAME, false);
+   SETTING_BOOL("playlist_allow_non_png",        &settings->bools.playlist_allow_non_png, true, DEFAULT_PLAYLIST_ALLOW_NON_PNG, false);
 
    SETTING_BOOL("frame_time_counter_reset_after_fastforwarding", &settings->bools.frame_time_counter_reset_after_fastforwarding, true, false, false);
    SETTING_BOOL("frame_time_counter_reset_after_load_state",     &settings->bools.frame_time_counter_reset_after_load_state, true, false, false);
@@ -2344,6 +2357,7 @@ static struct config_uint_setting *populate_settings_uint(
    SETTING_UINT("quit_on_close_content",         &settings->uints.quit_on_close_content, true, DEFAULT_QUIT_ON_CLOSE_CONTENT, false);
    SETTING_UINT("menu_thumbnails",               &settings->uints.gfx_thumbnails, true, DEFAULT_GFX_THUMBNAILS_DEFAULT, false);
    SETTING_UINT("menu_left_thumbnails",          &settings->uints.menu_left_thumbnails, true, DEFAULT_MENU_LEFT_THUMBNAILS_DEFAULT, false);
+   SETTING_UINT("menu_icon_thumbnails",          &settings->uints.menu_icon_thumbnails, true, DEFAULT_MENU_ICON_THUMBNAILS_DEFAULT, false);
    SETTING_UINT("menu_thumbnail_upscale_threshold", &settings->uints.gfx_thumbnail_upscale_threshold, true, DEFAULT_GFX_THUMBNAIL_UPSCALE_THRESHOLD, false);
    SETTING_UINT("menu_timedate_style",           &settings->uints.menu_timedate_style, true, DEFAULT_MENU_TIMEDATE_STYLE, false);
    SETTING_UINT("menu_timedate_date_separator",  &settings->uints.menu_timedate_date_separator, true, DEFAULT_MENU_TIMEDATE_DATE_SEPARATOR, false);
@@ -2711,6 +2725,7 @@ void config_set_defaults(void *data)
    const char *def_bluetooth        = config_get_default_bluetooth();
    const char *def_wifi             = config_get_default_wifi();
    const char *def_led              = config_get_default_led();
+   const char *def_cloudsync        = config_get_default_cloudsync();
    const char *def_location         = config_get_default_location();
    const char *def_record           = config_get_default_record();
    const char *def_midi             = config_get_default_midi();
@@ -2793,6 +2808,10 @@ void config_set_defaults(void *data)
       configuration_set_string(settings,
             settings->arrays.led_driver,
             def_led);
+   if (def_cloudsync)
+      configuration_set_string(settings,
+            settings->arrays.cloud_sync_driver,
+            def_cloudsync);
    if (def_location)
       configuration_set_string(settings,
             settings->arrays.location_driver,

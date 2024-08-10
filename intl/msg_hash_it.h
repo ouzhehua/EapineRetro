@@ -2505,7 +2505,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_X,
-   "Scostamento visuale personalizzato usato per definire la posizione dell'asse X della porta di visualizzazione.\nQuesti vengono ignorati se 'Scala intera' è abilitata."
+   "Scostamento visuale personalizzato utilizzato per definire la posizione dell'asse X della porta di visualizzazione."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_VIEWPORT_CUSTOM_Y,
@@ -2513,7 +2513,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_CUSTOM_Y,
-   "Scostamento visuale personalizzato usato per definire la posizione dell'asse Y della porta di visualizzazione.\nQuesti vengono ignorati se 'Scala intera' è abilitata."
+   "Scostamento visuale personalizzato utilizzato per definire la posizione dell'asse Y della porta di visualizzazione."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VIDEO_VIEWPORT_BIAS_X,
@@ -6784,6 +6784,14 @@ MSG_HASH(
    "Mostra 'Utente'"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ICON_THUMBNAILS,
+   "Icone Playlist"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ICON_THUMBNAILS,
+   "Tipo di miniatura dell'icona della playlist da visualizzare."
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_SETTINGS_SHOW_USER,
    "Mostra impostazioni 'Utente'."
    )
@@ -7761,7 +7769,15 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_PLAYLIST_USE_FILENAME,
    "Se abilitata, troverà le miniature dal nome del file della voce, piuttosto che dalla sua etichetta."
    )
-   MSG_HASH(
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_ALLOW_NON_PNG,
+   "Consenti tutti i tipi di immagini supportate per le miniature"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_PLAYLIST_ALLOW_NON_PNG,
+   "Se abilitata, le miniature locali possono essere aggiunte in tutti i tipi di immagine supportati da RetroArch (come jpeg). Potrebbe avere un impatto sulle prestazioni minore."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MANAGE,
    "Gestisci"
    )
@@ -10420,6 +10436,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAIL_MODE_TITLE_SCREENS,
    "Schermata del Titolo"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_THUMBNAIL_MODE_LOGOS,
+   "Logo Contenuto"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCROLL_NORMAL,

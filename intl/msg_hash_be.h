@@ -85,7 +85,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_LOAD_CONTENT_LIST,
-   "Агледзець змесціва. Для загрузкі неабходны 'ядро' ды файл са змесцівам.\nЗадайце 'каталог аглядальніка файлаў', дзе меню пачне агляд змесціва. Калі не зададзена, будзе пачынацца з кораню.\nАглядальнік будзе фільтраваць пашырэнні згодна з апошнім ядром, выбраным праз 'Загрузі[...]"
+   "Агледзець змесціва. Для загрузкі неабходны 'ядро' ды файл са змесцівам.\nЗадайце 'каталог браўзера файлаў', дзе меню пачне агляд змесціва. Калі не зададзена, будзе пачынацца з кораню.\nБраўзер будзе фільтраваць пашырэнні згодна з апошнім ядром, выбраным праз 'Загрузіць ядро', [...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_DISC,
@@ -1278,11 +1278,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FILE_BROWSER_SETTINGS,
-   "Файлавы аглядальнік"
+   "Файлавы браўзер"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_FILE_BROWSER_SETTINGS,
-   "Змяніць налады файлавага аглядальніка."
+   "Змяніць налады файлавага браўзера."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_CONFIG,
@@ -3918,6 +3918,10 @@ MSG_HASH(
    "Аўтаматычнае захаванне стану"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_LOAD,
+   "Аўтаматычная загрузка стану"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_LOAD,
    "Аўтаматычна загружаць стан аўтаматычнага захавання пры запуску."
    )
@@ -3925,9 +3929,61 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATE_FILE_COMPRESSION,
    "Сцісканне захавання стану"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SORT_SCREENSHOTS_BY_CONTENT_ENABLE,
+   "Сартаванне здымкаў экрана па тэчкам каталога змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SORT_SCREENSHOTS_BY_CONTENT_ENABLE,
+   "Рассартоўваць здымкі экрана па тэчкам з назвай каталогаў, дзе размешчана змесціва."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVEFILES_IN_CONTENT_DIR_ENABLE,
+   "Запіс захаванняў у каталог змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVEFILES_IN_CONTENT_DIR_ENABLE,
+   "Выкарыстоўваць каталог змесціва як каталог файлаў захавання."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SAVESTATES_IN_CONTENT_DIR_ENABLE,
+   "Запіс захаванняў стану ў каталог змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SAVESTATES_IN_CONTENT_DIR_ENABLE,
+   "Выкарыстоўваць каталог змесціва як каталог захаванняў стану."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEMFILES_IN_CONTENT_DIR_ENABLE,
+   "Сістэмныя файлы ў каталозе змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SYSTEMFILES_IN_CONTENT_DIR_ENABLE,
+   "Выкарыстоўваць каталог змесціва як сістэмны/BIOS каталог."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SCREENSHOTS_IN_CONTENT_DIR_ENABLE,
+   "Запіс здымкаў экрана ў каталог змесціва"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SCREENSHOTS_IN_CONTENT_DIR_ENABLE,
+   "Выкарыстоўваць каталог змесціва як каталог здымкаў экрана."
+   )
 
 /* Settings > Logging */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LOG_VERBOSITY,
+   "Вядзенне журнала"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_LOG_VERBOSITY,
+   "Заносіць падзеі ў тэрмінал або файл."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LIBRETRO_LOG_LEVEL,
+   "Узровень журналявання ядра"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOG_VERBOSITY_DEBUG,
    "0 (Адладка)"
@@ -3944,12 +4000,64 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOG_VERBOSITY_ERROR,
    "3 (Памылкі)"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LOG_TO_FILE,
+   "Журналяванне ў файл"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_LOG_TO_FILE,
+   "Перанакіроўваць паведамленні журнала сістэмных падзей у файл. Патрабуе, каб было ўключана 'Вядзенне журнала'."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LOG_TO_FILE_TIMESTAMP,
+   "Файлы журналаў з адбіткамі часу"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_LOG_TO_FILE_TIMESTAMP,
+   "Пры журналяванні ў файл перанакіроўвае вывад з кожнага сеанса RetroArch у новы файл з адбіткам часу. Калі адключана, журнал будзе перазапісвацца пры кожным перазапуску RetroArch."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PERFCNT_ENABLE,
+   "Лічыльнікі прадукцыйнасці"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_PERFCNT_ENABLE,
+   "Лічыльнікі прадукцыйнасці для RetroArch ды ядраў. Звесткі лічыльнікаў могуць дапамагчы вызначыць вузкія месцы сістэмы ды файна наладзіць прадукцыйнасць."
+   )
 
 /* Settings > File Browser */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SHOW_HIDDEN_FILES,
+   "Паказ схаваных файлаў ды каталогаў"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_SHOW_HIDDEN_FILES,
+   "Паказваць схаваныя файлы ды каталогі ў файлавым браўзеры."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NAVIGATION_BROWSER_FILTER_SUPPORTED_EXTENSIONS_ENABLE,
-   "Фільтраваць невядомыя пашырэнні"
+   "Фільтраванне невядомых пашырэнняў"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_NAVIGATION_BROWSER_FILTER_SUPPORTED_EXTENSIONS_ENABLE,
+   "Фільтраваць файлы, якія паказваюцца файлавым браўзерам, па пашырэннях, якія падтрымліваюцца."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_USE_BUILTIN_PLAYER,
+   "Выкарыстанне ўбудаванага медыяпрайгравальніка"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_FILTER_BY_CURRENT_CORE,
+   "Фільтраванне па бягучаму ядру"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_USE_LAST_START_DIRECTORY,
+   "Памятаць апошні выкарыстаны пачатковы каталог"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_USE_LAST_START_DIRECTORY,
+   "Адкрываць файлавы браўзер на апошнім выкарыстаным месцы пры загрузцы змесціва з пачатковага каталога. Заўвага: месца будзе скінута да прадвызначанага пры перазапуску RetroArch."
    )
 
 /* Settings > Frame Throttle */
@@ -3957,6 +4065,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REWIND_SETTINGS,
    "Перамотка назад"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_META_REWIND,
+   "Змяніць налады перамоткі назад."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_FRAME_TIME_COUNTER_SETTINGS,
+   "Лічыльнік часу кадра"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SLOWMOTION_RATIO,
@@ -4833,11 +4949,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_FILE_BROWSER,
-   "Паказ 'Файлавы аглядальнік'"
+   "Паказ 'Файлавы браўзер'"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SETTINGS_SHOW_FILE_BROWSER,
-   "Паказваць налады 'Файлавы аглядальнік'."
+   "Паказваць налады 'Файлавы браўзер'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_FRAME_THROTTLE,
@@ -5541,7 +5657,15 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_PLAYLIST_MANAGER_LIST,
    "Зрабіць справы па вядзенню плэй-лістоў."
    )
-   MSG_HASH(
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_ALLOW_NON_PNG,
+   "Дазвол усіх, што маюць падтрымку, тыпаў відарысаў для мініяцюр"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_PLAYLIST_ALLOW_NON_PNG,
+   "Калі ўключана, лакальныя мініяцюры можна дадаваць ва ўсіх тыпаў відарысаў, якія падтрымлівае RetroArch (напрыклад, jpeg). Можа мець невялікі ўплыў на прадукцыйнасць."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MANAGE,
    "Кіраваць"
    )
@@ -5650,11 +5774,11 @@ MSG_HASH(
    )
 MSG_HASH( /* FIXME Not RGUI specific */
    MENU_ENUM_LABEL_VALUE_RGUI_BROWSER_DIRECTORY,
-   "Файлавы аглядальнік"
+   "Файлавы браўзер"
    )
 MSG_HASH( /* FIXME Not RGUI specific */
    MENU_ENUM_SUBLABEL_RGUI_BROWSER_DIRECTORY,
-   "Задаць пачатковы каталог для файлавага аглядальніка."
+   "Задаць пачатковы каталог для файлавага браўзера."
    )
 MSG_HASH( /* FIXME Not RGUI specific */
    MENU_ENUM_LABEL_VALUE_RGUI_CONFIG_DIRECTORY,
@@ -7735,7 +7859,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_TAB_FILE_BROWSER,
-   "Файлавы аглядальнік"
+   "Файлавы браўзер"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_THUMBNAIL_SCREENSHOT,
@@ -8047,6 +8171,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PORT_DEVICE_NAME,
    "Порт %d назва прылады: %s (#%d)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RUN_MUSIC,
+   "Прайграць з дапамогай медыяпрайгравальніка"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SECONDS,

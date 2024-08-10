@@ -284,8 +284,8 @@ void fill_pathname_application_special(char *s,
       case APPLICATION_SPECIAL_DIRECTORY_ASSETS_SYSICONS:
          {
 #ifdef HAVE_MENU
-            settings_t *settings   = config_get_ptr();
 #if defined(HAVE_XMB) || defined(HAVE_MATERIALUI) || defined(HAVE_OZONE) || defined(HAVE_EAPINE_DESKTOP)
+            settings_t *settings   = config_get_ptr();
             const char *menu_ident = settings->arrays.menu_driver;
 #endif
 
@@ -323,8 +323,7 @@ void fill_pathname_application_special(char *s,
             }
             else
 #endif
-               if (len)
-               s[0] = '\0';
+               if (len) s[0] = '\0';
 #endif
          }
 
